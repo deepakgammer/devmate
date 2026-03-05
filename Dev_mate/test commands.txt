@@ -1,0 +1,503 @@
+================================================================================
+                    DEVMATE – USER GUIDE & TEST COMMANDS
+                    ====================================
+              How to Use DevMate & Test Every Feature
+================================================================================
+
+
+================================================================================
+ TABLE OF CONTENTS
+================================================================================
+
+  1. Prerequisites & Setup
+  2. Launching DevMate
+  3. General Chat (AI Conversation)
+  4. Project Creation
+  5. Git Operations
+  6. GitHub Integration
+  7. Task Management
+  8. Reminders & Scheduling
+  9. Command Execution
+ 10. Voice Input (Speech-to-Text)
+ 11. Text-to-Speech (TTS)
+ 12. Memory & Context
+ 13. UI Features
+ 14. Troubleshooting
+
+
+================================================================================
+ 1. PREREQUISITES & SETUP
+================================================================================
+
+Before using DevMate, make sure the following are installed and running:
+
+  A) Python 3.9+
+     - Verify:  python --version
+
+  B) Ollama (Local LLM Server)
+     - Download from: https://ollama.com
+     - Pull the configured model:
+         ollama pull llama3
+     - Start Ollama (it usually runs automatically after install):
+         ollama serve
+     - Verify it's running:
+         curl http://localhost:11434/api/tags
+
+  C) Install Python Dependencies
+     - Navigate to the DevMate folder and run:
+         pip install -r requirements.txt
+
+  D) Node.js & npm (Required for React/Angular projects)
+     - Node.js: node --version
+     - npm:     npm --version
+     - Download from: https://nodejs.org
+
+  E) Microphone & Audio (Optional – for Voice Features)
+     - A working microphone for Speech-to-Text
+     - Speakers/headphones for Text-to-Speech
+
+  F) Git & GitHub CLI (Optional – for Git Features)
+     - Git:  git --version
+     - GitHub CLI:  gh --version
+     - Authenticate GitHub CLI:  gh auth login
+
+
+================================================================================
+ 2. LAUNCHING DEVMATE
+================================================================================
+
+  Open a terminal in the DevMate folder and run:
+
+      python devmate.py
+
+  The GUI window will open with:
+    - Chat area (center)
+    - Sidebar with task list and activity log
+    - Input bar at the bottom with a Send button and Microphone button
+    - Status bar showing current state (Ready, Thinking, etc.)
+
+
+================================================================================
+ 3. GENERAL CHAT (AI Conversation)
+================================================================================
+
+  DevMate uses Llama 3 (via Ollama) for intelligent conversation.
+  Simply type any question or statement to chat.
+
+  TEST COMMANDS:
+  ──────────────
+  • Hello, how are you?
+  • What is Python used for?
+  • Explain the difference between a list and a tuple in Python.
+  • What is a REST API?
+  • Give me tips for writing clean code.
+  • What are design patterns in software engineering?
+  • How does Git branching work?
+
+  EXPECTED BEHAVIOR:
+  - DevMate processes your input through the LLM
+  - A streaming response appears word-by-word in the chat
+  - The status bar shows "Thinking …" then "Generating response …" then "Ready"
+  - The response is stored in memory for context in future turns
+
+
+================================================================================
+ 4. PROJECT CREATION
+================================================================================
+
+  DevMate can scaffold new projects in multiple languages/frameworks:
+    - Python (with virtual environment)
+    - Node.js (Express server template)
+    - React (via npx create-react-app)
+    - Angular (via npx @angular/cli)
+
+  TEST COMMANDS:
+  ──────────────
+  • Create a Python project called MyApp
+  • Create a Node project named ApiServer
+  • Create a React project called MyDashboard
+  • Create an Angular project called AdminPanel
+  • Create a project named DataTool
+
+  EXPECTED BEHAVIOR:
+  - Python & Node: DevMate creates a folder with template files in ~/Projects/
+  - React: Runs `npx create-react-app` to scaffold a full React project
+  - Angular: Runs `npx @angular/cli new` to scaffold a full Angular project
+  - For Python projects, a virtual environment (venv) is also created
+  - Confirmation message shows the project path
+  - Project is logged in the memory database
+
+  NOTE: React and Angular scaffolding requires Node.js and npm installed.
+        The first run may take a few minutes to download CLI tools.
+
+
+================================================================================
+ 5. GIT OPERATIONS
+================================================================================
+
+  DevMate can initialize Git repositories for your projects.
+
+  TEST COMMANDS:
+  ──────────────
+  • Initialize git in my project
+  • Init git at C:\Users\ADMIN\Projects\MyApp
+  • Set up git for my project
+
+  EXPECTED BEHAVIOR:
+  - Runs "git init" in the specified directory
+  - Creates initial commit with all files
+  - Confirmation message displayed in chat
+
+
+================================================================================
+ 6. GITHUB INTEGRATION
+================================================================================
+
+  DevMate can push code to GitHub using Git and the GitHub CLI (gh).
+  It automatically:
+    - Finds your last created project (no need to specify a path)
+    - Initialises git if not already done
+    - Commits all files
+    - Pushes to remote (creates a GitHub repo if none exists)
+
+  Requires: Git installed. GitHub CLI (gh) installed and authenticated.
+
+  TEST COMMANDS:
+  ──────────────
+  • Push my project to GitHub
+  • Push to GitHub with message "Added new features"
+  • Push my code to GitHub
+  • Push code to remote
+  • Git push
+  • Create a GitHub repo for MyApp
+
+  EXPECTED BEHAVIOR:
+  - DevMate auto-detects the last project you created
+  - If git is not initialised, it runs "git init" first
+  - Stages all files and commits with the given message
+  - Tries to push to remote (origin/main)
+  - If no remote exists, automatically creates a GitHub repo via "gh" CLI
+  - Shows clear error messages with fix instructions if anything fails
+
+  PREREQUISITES:
+  ──────────────
+  1. Install Git:  https://git-scm.com/
+  2. Install GitHub CLI:  https://cli.github.com/
+  3. Authenticate:  gh auth login
+  4. Create a project first so DevMate knows which folder to push
+
+
+================================================================================
+ 7. TASK MANAGEMENT
+================================================================================
+
+  DevMate has a built-in task manager with priorities (low, medium, high).
+  Tasks are saved to data/tasks.json and persist across sessions.
+
+  TEST COMMANDS – Adding Tasks:
+  ─────────────────────────────
+  • Add task: Fix the login bug
+  • Add task: Write unit tests with high priority
+  • Add a high priority task: Deploy to production
+  • Add task: Update documentation with low priority
+  • Add task: Review pull requests
+
+  TEST COMMANDS – Listing Tasks:
+  ──────────────────────────────
+  • Show my tasks
+  • List tasks
+  • What are my tasks?
+  • Show task list
+
+  TEST COMMANDS – Completing Tasks:
+  ─────────────────────────────────
+  • Complete task 1
+  • Mark task 2 as done
+  • Finish task 3
+
+  TEST COMMANDS – Removing Tasks:
+  ────────────────────────────────
+  • Remove task 1
+  • Delete task 2
+
+  EXPECTED BEHAVIOR:
+  - Tasks appear in the sidebar task list panel
+  - Each task shows its ID, priority icon (🔴 High, 🟡 Medium, 🟢 Low)
+  - Completed tasks show a ✅ checkmark
+  - Chat confirms each action with a formatted message
+  - Tasks persist in data/tasks.json between sessions
+
+
+================================================================================
+ 8. REMINDERS & SCHEDULING
+================================================================================
+
+  DevMate can set timed reminders that fire with a popup notification.
+  Supports natural time expressions.
+
+  TEST COMMANDS:
+  ──────────────
+  • Remind me to take a break in 5 minutes
+  • Set a reminder to check emails in 1 hour
+  • Remind me to push code in 30 minutes
+  • Set a reminder at 3 PM to join the meeting
+  • Remind me tomorrow at 9 AM to review PRs
+  • Remind me in 10 seconds to test this feature
+
+  EXPECTED BEHAVIOR:
+  - Confirmation message with the scheduled time
+  - When the timer fires:
+      → A popup notification appears on screen
+      → A message appears in the chat: "⏰ Reminder: <your text>"
+      → TTS speaks the reminder (if enabled)
+  - Reminders run on background threads and don't block the UI
+
+
+================================================================================
+ 9. COMMAND EXECUTION
+================================================================================
+
+  DevMate can run whitelisted terminal commands safely.
+
+  Allowed command prefixes: echo, python, pip, npm, npx, node, git, gh, ls,
+                            dir, cat, type, mkdir, cd, pwd, pytest, black,
+                            isort, poetry, uvicorn, flask, django
+
+  Blocked commands: rm -rf, del /f, format, shutdown, wget, curl, etc.
+
+  TEST COMMANDS:
+  ──────────────
+  • Run command: echo Hello DevMate
+  • Run: python --version
+  • Execute: pip list
+  • Run command: dir
+  • Run: git status
+  • Run: node --version
+  • Run: npm --version
+  • Execute: mkdir test_folder
+
+  TEST BLOCKED COMMANDS (should be rejected):
+  ────────────────────────────────────────────
+  • Run: rm -rf /
+  • Run command: shutdown
+  • Execute: wget http://example.com
+  • Run: curl http://example.com
+
+  EXPECTED BEHAVIOR:
+  - Whitelisted commands execute and output streams in real-time to chat
+  - Blocked commands are rejected with a security warning
+  - Command history is logged in memory for "frequent commands" tracking
+  - Status bar shows the running command
+
+
+================================================================================
+ 10. VOICE INPUT (Speech-to-Text)
+================================================================================
+
+  DevMate uses OpenAI Whisper (base model) for offline speech recognition.
+
+  HOW TO TEST:
+  ─────────────
+  1. Click the 🎤 Microphone button in the bottom-right of the input bar
+  2. Speak clearly into your microphone
+  3. Stop speaking – DevMate auto-detects 2 seconds of silence
+  4. Your speech is transcribed and sent as text input automatically
+
+  TEST SCENARIOS:
+  ────────────────
+  • Click mic → Say "Hello, how are you?" → Wait for silence detection
+  • Click mic → Say "Create a Python project called VoiceTest" → Wait
+  • Click mic → Say "Add task fix the navbar" → Wait
+  • Click mic → Say "Remind me to drink water in 10 minutes" → Wait
+
+  EXPECTED BEHAVIOR:
+  - Status bar shows: "Listening …" → "Transcribing …" → "Processing …"
+  - Transcribed text appears as a user message in chat
+  - The transcribed text is processed like normal text input
+  - If no speech is detected, shows "No speech detected" message
+
+
+================================================================================
+ 11. TEXT-TO-SPEECH (TTS)
+================================================================================
+
+  DevMate uses Coqui TTS (VITS model) for offline text-to-speech.
+  All bot responses are spoken aloud when TTS is enabled.
+
+  HOW TO TEST:
+  ─────────────
+  1. TTS is ENABLED by default
+  2. Type any message → DevMate responds in chat AND speaks the response
+  3. Toggle TTS on/off using the speaker button in the GUI
+
+  TEST SCENARIOS:
+  ────────────────
+  • Type "Hello" → Listen for the spoken response
+  • Toggle TTS off → Type "Hello again" → No audio should play
+  • Toggle TTS on → Type "Test TTS" → Audio should play again
+
+  EXPECTED BEHAVIOR:
+  - Bot responses are spoken through your speakers/headphones
+  - TTS runs in a background thread (non-blocking)
+  - Only the first 300 characters of a response are spoken (to avoid long waits)
+  - TTS toggle state persists in the UI session
+
+
+================================================================================
+ 12. MEMORY & CONTEXT
+================================================================================
+
+  DevMate maintains two levels of memory:
+
+  A) SHORT-TERM MEMORY (RAM)
+     - Last 10 conversation turns kept in a deque
+     - Used for immediate LLM context (last 3 turns sent to the model)
+     - Cleared when the session ends
+
+  B) LONG-TERM MEMORY (SQLite Database)
+     - All conversations stored in data/devmate.db
+     - Project history, user preferences, command frequency tracked
+     - Persists across sessions
+
+  HOW TO TEST MEMORY:
+  ────────────────────
+  1. Have a multi-turn conversation:
+     • Type: "My favorite language is Python"
+     • Type: "What is my favorite language?"
+     → DevMate should recall "Python" from context
+
+  2. Test cross-session persistence:
+     • Create a project, add tasks, run some commands
+     • Close DevMate
+     • Reopen DevMate
+     → Tasks should still be present (loaded from tasks.json)
+     → Previous conversation stored in database
+
+  3. Test context window:
+     • Have more than 10 turns of conversation
+     → Only the last 10 turns are in active memory
+     → Earlier turns are still in the SQLite database
+
+
+================================================================================
+ 13. UI FEATURES
+================================================================================
+
+  A) CHAT AREA
+     - User messages appear in blue bubbles (right-aligned)
+     - Bot messages appear in green bubbles (left-aligned)
+     - System messages appear inline (for command output, etc.)
+     - Streaming responses show tokens appearing in real-time
+
+  B) SIDEBAR
+     - Task List: Shows all tasks with icons and status
+     - Activity Log: Shows recent events (intents, commands, etc.)
+
+  C) STATUS BAR
+     - Bottom of the window
+     - Shows: Ready, Thinking …, Listening …, Generating response …, etc.
+
+  D) INPUT BAR
+     - Text input field with Send button
+     - Microphone button for voice input
+     - Press Enter to send (same as clicking Send)
+
+  HOW TO TEST UI:
+  ────────────────
+  • Resize the window → Layout should adapt (min size: 900x600)
+  • Send multiple messages → Chat scrolls automatically
+  • Add several tasks → Sidebar task list updates
+  • Run a command → Activity log updates in real-time
+  • Type a long message → Input field handles it properly
+
+
+================================================================================
+ 14. TROUBLESHOOTING
+================================================================================
+
+  PROBLEM: "Ollama is not available" or LLM not responding
+  FIX:
+    1. Make sure Ollama is running:  ollama serve
+    2. Check model is downloaded:    ollama list
+    3. Pull the model if missing:    ollama pull llama3
+    4. Test manually:                ollama run llama3 "Hello"
+
+  PROBLEM: Voice input not working
+  FIX:
+    1. Check microphone permissions in your OS settings
+    2. Ensure PyAudio is installed:  pip install pyaudio
+    3. Check that no other app is using the microphone
+
+  PROBLEM: TTS not speaking
+  FIX:
+    1. Check that TTS is enabled (speaker icon in GUI)
+    2. Ensure Coqui TTS is installed:  pip install TTS
+    3. Check audio output device is connected
+
+  PROBLEM: Git/GitHub commands failing
+  FIX:
+    1. Verify git is installed:   git --version
+    2. Verify gh CLI:             gh --version
+    3. Authenticate GitHub:       gh auth login
+
+  PROBLEM: Project creation fails (Python/Node)
+  FIX:
+    1. Check write permissions in ~/Projects/ directory
+    2. Make sure the project name doesn't already exist
+    3. Check disk space
+
+  PROBLEM: React/Angular project creation fails
+  FIX:
+    1. Make sure Node.js and npm are installed:  node --version / npm --version
+    2. Check internet connection (CLI tools are downloaded on first use)
+    3. Try running manually:  npx create-react-app TestApp
+    4. For Angular:           npx @angular/cli@latest new TestApp --defaults
+
+  PROBLEM: GitHub push not working
+  FIX:
+    1. Create a project first (DevMate auto-finds the last project)
+    2. Install Git:           git --version
+    3. Install GitHub CLI:    gh --version
+    4. Authenticate GitHub:   gh auth login
+    5. DevMate will auto-init git and create a repo if needed
+
+  PROBLEM: Command is blocked/rejected
+  FIX:
+    - Only whitelisted commands are allowed for security
+    - Check the COMMAND_WHITELIST_PREFIXES in config.py
+    - Dangerous commands (rm, del, shutdown, etc.) are intentionally blocked
+
+
+================================================================================
+ QUICK TEST CHECKLIST
+================================================================================
+
+  Use this checklist to quickly verify all features are working:
+
+  [ ] 1.  Launch DevMate:           python devmate.py
+  [ ] 2.  Chat works:               Type "Hello"
+  [ ] 3.  Streaming works:          Watch response appear word-by-word
+  [ ] 4.  Create Python project:    "Create a Python project called TestPy"
+  [ ] 5.  Create Node project:      "Create a Node project called TestNode"
+  [ ] 6.  Create React project:     "Create a React project called TestReact"
+  [ ] 7.  Create Angular project:   "Create an Angular project called TestNg"
+  [ ] 8.  Add task:                 "Add task: Test DevMate features"
+  [ ] 9.  List tasks:               "Show my tasks"
+  [ ] 10. Complete task:            "Complete task 1"
+  [ ] 11. Remove task:              "Remove task 1"
+  [ ] 12. Set reminder:             "Remind me in 10 seconds to check this"
+  [ ] 13. Wait for reminder:        Watch for popup after 10 seconds
+  [ ] 14. Run command:              "Run: echo Hello from DevMate"
+  [ ] 15. Blocked command:          "Run: rm -rf /" → should be rejected
+  [ ] 16. Voice input:              Click mic → Speak → Check transcription
+  [ ] 17. TTS toggle:               Toggle speaker → Verify audio on/off
+  [ ] 18. Init git:                 "Initialize git in my project"
+  [ ] 19. Memory test:              Multi-turn conversation for context recall
+  [ ] 20. Sidebar tasks:            Verify tasks show in sidebar
+  [ ] 21. Activity log:             Verify events logged in sidebar
+  [ ] 22. Resize window:            Check UI responsiveness
+  [ ] 23. Close & reopen:           Verify tasks persist
+
+================================================================================
+                         END OF TEST GUIDE
+================================================================================

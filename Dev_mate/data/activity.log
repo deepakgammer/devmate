@@ -1,0 +1,301 @@
+2026-03-03 15:12:45,905 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:12:45,907 [INFO] modules.memory_module: MemoryManager initialised  session=2630bd7a-6b0a-4bd0-8d32-017ca5ad13ac
+2026-03-03 15:12:46,285 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:12:46,285 [INFO] devmate: DevMateController ready.
+2026-03-03 15:12:48,296 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:12:49,131 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:12:49,131 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:12:53,762 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:12:53,763 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:13:01,129 [INFO] devmate: User text: 'hello'
+2026-03-03 15:13:01,583 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-03 15:13:05,205 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:13:05,205 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-03 15:13:05,206 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-03 15:13:05,299 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:13:38,018 [INFO] devmate: User text: 'hello'
+2026-03-03 15:13:39,033 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:13:39,033 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-03 15:13:39,033 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-03 15:13:39,122 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:14:42,033 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:14:42,033 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:14:42,037 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:14:42,037 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:14:42,285 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:17:38,014 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:17:38,017 [INFO] modules.memory_module: MemoryManager initialised  session=dfc6cc5d-f528-4cbb-b873-46ddb45506d2
+2026-03-03 15:17:38,320 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:17:38,320 [INFO] devmate: DevMateController ready.
+2026-03-03 15:17:40,327 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:17:40,566 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:17:40,566 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:17:45,009 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:17:45,018 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:17:46,878 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:17:46,878 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:17:46,885 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:17:46,885 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:17:47,323 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:18:58,881 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:18:58,884 [INFO] modules.memory_module: MemoryManager initialised  session=e1aa6eeb-3c18-4ecf-915f-ed1054c04484
+2026-03-03 15:18:59,187 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:18:59,187 [INFO] devmate: DevMateController ready.
+2026-03-03 15:19:01,201 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:19:01,397 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:19:01,397 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:19:05,777 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:19:05,802 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:19:14,548 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:19:14,548 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:19:14,555 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:19:14,555 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:19:14,972 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:20:36,891 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:20:36,893 [INFO] modules.memory_module: MemoryManager initialised  session=b1d199c9-c586-4e1f-8821-fb9f67929b79
+2026-03-03 15:20:37,196 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:20:37,196 [INFO] devmate: DevMateController ready.
+2026-03-03 15:20:39,204 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:20:39,394 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:20:39,395 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:20:43,796 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:20:43,816 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:20:53,259 [INFO] devmate: User text: 'hellow'
+2026-03-03 15:20:53,649 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-03 15:20:55,975 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:20:55,975 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-03 15:20:55,976 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-03 15:20:56,068 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:21:03,315 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:21:03,316 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:21:03,321 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:21:03,321 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:21:03,564 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:22:53,982 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:22:53,986 [INFO] modules.memory_module: MemoryManager initialised  session=ea16ea57-bbe7-43ee-b466-0a4369579a92
+2026-03-03 15:22:54,291 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:22:54,291 [INFO] devmate: DevMateController ready.
+2026-03-03 15:22:56,304 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:22:56,478 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:22:56,479 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:23:00,969 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:23:00,973 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:23:04,341 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:23:04,341 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:23:04,349 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:23:04,349 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:23:04,765 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:24:57,522 [INFO] devmate: === DEVMATE starting ===
+2026-03-03 15:24:57,524 [INFO] modules.memory_module: MemoryManager initialised  session=53465ff3-7bfa-45b7-84c3-5fe6ae9dc216
+2026-03-03 15:24:57,833 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-03 15:24:57,833 [INFO] devmate: DevMateController ready.
+2026-03-03 15:24:59,849 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:25:00,001 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-03 15:25:00,001 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-03 15:25:04,440 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:25:04,449 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-03 15:25:15,645 [INFO] devmate: User text: 'hi'
+2026-03-03 15:25:16,036 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-03 15:25:18,833 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:25:18,834 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-03 15:25:18,834 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-03 15:25:18,926 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:25:36,748 [INFO] devmate: User text: 'hello'
+2026-03-03 15:25:37,814 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:25:37,814 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-03 15:25:37,815 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-03 15:25:37,904 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-03 15:25:48,608 [INFO] devmate: User text: 'change mode to MATE'
+2026-03-03 15:25:48,611 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-03 15:25:48,612 [INFO] devmate: Intent: change_mode  params: {'mode': 'MATE'}
+2026-03-03 15:25:51,323 [INFO] devmate: User text: 'change mode to DEV'
+2026-03-03 15:25:51,324 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-03 15:25:51,324 [INFO] devmate: Intent: change_mode  params: {'mode': 'DEV'}
+2026-03-03 15:26:37,533 [INFO] devmate: Shutting down DEVMATE …
+2026-03-03 15:26:37,533 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-03 15:26:37,540 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-03 15:26:37,540 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-03 15:26:37,793 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-04 12:37:31,576 [INFO] devmate: === DEVMATE starting ===
+2026-03-04 12:37:31,583 [INFO] modules.memory_module: MemoryManager initialised  session=304c22d6-d027-43fe-9ae5-659d9786fef1
+2026-03-04 12:37:32,233 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-04 12:37:32,233 [INFO] devmate: DevMateController ready.
+2026-03-04 12:37:35,715 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-04 12:37:39,758 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-04 12:37:39,758 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-04 12:37:49,320 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-04 12:37:49,327 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-04 12:38:08,585 [INFO] devmate: User text: 'say hello after 2 minutes'
+2026-03-04 12:38:09,113 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-04 12:38:12,343 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:38:12,344 [WARNING] modules.llm_module: Intent JSON parse failed (Extra data: line 4 column 1 (char 43)) — falling back to general_chat
+2026-03-04 12:38:12,345 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:38:12,439 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:39:04,514 [INFO] devmate: User text: 'remind me in 10 seconds'
+2026-03-04 12:39:07,050 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:39:07,050 [WARNING] modules.llm_module: Intent JSON parse failed (Extra data: line 1 column 66 (char 65)) — falling back to general_chat
+2026-03-04 12:39:07,050 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:39:07,147 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:40:30,898 [INFO] devmate: User text: 'change mode to MATE'
+2026-03-04 12:40:30,901 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-04 12:40:30,901 [INFO] devmate: Intent: change_mode  params: {'mode': 'MATE'}
+2026-03-04 12:40:31,797 [ERROR] modules.speech_module: TTS error: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+2026-03-04 12:41:29,781 [INFO] devmate: User text: 'remind me in 10 seconds to drink water'
+2026-03-04 12:41:29,783 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-04 12:41:29,784 [INFO] devmate: Intent: add_reminder  params: {'when': 'in 10 seconds', 'text': 'drink water'}
+2026-03-04 12:41:29,790 [INFO] modules.scheduler_module: Reminder scheduled: id=b7066e96 at 12:41 PM (10 s)
+2026-03-04 12:41:39,815 [INFO] modules.scheduler_module: Reminder fired: id=b7066e96 text='drink water'
+2026-03-04 12:42:40,787 [INFO] devmate: User text: 'hii  devmate'
+2026-03-04 12:42:41,890 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:42:41,891 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-04 12:42:41,891 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:42:41,986 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:44:03,705 [INFO] devmate: User text: 'remind me in 5 seconds to eat food'
+2026-03-04 12:44:03,709 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-04 12:44:03,710 [INFO] devmate: Intent: add_reminder  params: {'when': 'in 5 seconds', 'text': 'eat food'}
+2026-03-04 12:44:03,718 [INFO] modules.scheduler_module: Reminder scheduled: id=725179d5 at 12:44 PM (5 s)
+2026-03-04 12:44:08,735 [INFO] modules.scheduler_module: Reminder fired: id=725179d5 text='eat food'
+2026-03-04 12:44:44,838 [INFO] devmate: User text: '10 + 50'
+2026-03-04 12:44:47,163 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:44:47,163 [WARNING] modules.llm_module: Intent JSON parse failed (Extra data: line 1 column 3 (char 2)) — falling back to general_chat
+2026-03-04 12:44:47,163 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:44:47,259 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:45:34,933 [INFO] devmate: User text: 'create an python project'
+2026-03-04 12:45:35,786 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:45:35,786 [INFO] devmate: Intent: create_project  params: {'name': '', 'language': 'python'}
+2026-03-04 12:46:13,336 [INFO] devmate: User text: 'aswin_project'
+2026-03-04 12:48:28,173 [INFO] devmate: User text: 'remind me 10seconds to drink water'
+2026-03-04 12:48:28,176 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-04 12:48:28,176 [INFO] devmate: Intent: add_reminder  params: {'when': '10seconds', 'text': 'drink water'}
+2026-03-04 12:48:28,186 [INFO] modules.scheduler_module: Reminder scheduled: id=2f8a0ee3 at 07:18 AM (66581 s)
+2026-03-04 12:49:41,826 [INFO] devmate: User text: 'remind me in 10seconds to drink water'
+2026-03-04 12:49:41,830 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-04 12:49:41,830 [INFO] devmate: Intent: add_reminder  params: {'when': 'in 10seconds', 'text': 'drink water'}
+2026-03-04 12:49:41,838 [INFO] modules.scheduler_module: Reminder scheduled: id=0264686b at 12:49 PM (10 s)
+2026-03-04 12:49:51,851 [INFO] modules.scheduler_module: Reminder fired: id=0264686b text='drink water'
+2026-03-04 12:50:56,728 [INFO] devmate: User text: 'create an node project'
+2026-03-04 12:50:59,865 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:50:59,865 [WARNING] modules.llm_module: Intent JSON parse failed (Extra data: line 3 column 1 (char 74)) — falling back to general_chat
+2026-03-04 12:50:59,866 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:50:59,964 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:51:15,809 [INFO] devmate: User text: 'change mode to DEV'
+2026-03-04 12:51:15,811 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-04 12:51:15,812 [INFO] devmate: Intent: change_mode  params: {'mode': 'DEV'}
+2026-03-04 12:51:38,230 [INFO] devmate: User text: 'create an Node project'
+2026-03-04 12:51:39,187 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:51:39,187 [INFO] devmate: Intent: create_project  params: {'name': '', 'language': ''}
+2026-03-04 12:52:02,764 [INFO] devmate: User text: 'ash_project'
+2026-03-04 12:52:49,098 [INFO] devmate: User text: 'create repo'
+2026-03-04 12:52:49,101 [INFO] modules.llm_module: Intent matched locally: create_github_repo
+2026-03-04 12:52:49,101 [INFO] devmate: Intent: create_github_repo  params: {}
+2026-03-04 12:53:00,128 [INFO] devmate: User text: 'aswin'
+2026-03-04 12:53:10,539 [INFO] devmate: User text: 'public'
+2026-03-04 12:54:45,603 [INFO] devmate: User text: 'push repo aswin'
+2026-03-04 12:54:46,870 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:54:46,871 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-04 12:54:46,871 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:54:46,963 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:55:20,837 [INFO] devmate: User text: 'push files'
+2026-03-04 12:55:20,840 [INFO] modules.llm_module: Intent matched locally: push_files_to_repo
+2026-03-04 12:55:20,840 [INFO] devmate: Intent: push_files_to_repo  params: {}
+2026-03-04 12:55:33,782 [INFO] devmate: User text: 'aswin'
+2026-03-04 12:59:40,709 [INFO] devmate: User text: 'donwlode repo aswin_project'
+2026-03-04 12:59:42,639 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 12:59:42,639 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-04 12:59:42,639 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 12:59:42,731 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 13:00:23,844 [INFO] devmate: User text: 'delete repo aswin'
+2026-03-04 13:00:23,847 [INFO] modules.llm_module: Intent matched locally: delete_github_repo
+2026-03-04 13:00:23,848 [INFO] devmate: Intent: delete_github_repo  params: {'name': 'aswin'}
+2026-03-04 13:00:35,846 [INFO] devmate: User text: 'yes'
+2026-03-04 13:01:58,901 [INFO] devmate: User text: 'change mode to MATE'
+2026-03-04 13:01:58,903 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-04 13:01:58,903 [INFO] devmate: Intent: change_mode  params: {'mode': 'MATE'}
+2026-03-04 13:02:05,766 [INFO] devmate: User text: 'change mode to DEV'
+2026-03-04 13:02:05,769 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-04 13:02:05,769 [INFO] devmate: Intent: change_mode  params: {'mode': 'DEV'}
+2026-03-04 13:02:26,311 [INFO] devmate: User text: 'change mode to MATE'
+2026-03-04 13:02:26,315 [INFO] modules.llm_module: Intent matched locally: change_mode
+2026-03-04 13:02:26,316 [INFO] devmate: Intent: change_mode  params: {'mode': 'MATE'}
+2026-03-04 13:06:59,722 [INFO] devmate: Shutting down DEVMATE …
+2026-03-04 13:06:59,722 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-04 13:06:59,728 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-04 13:06:59,728 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-04 13:06:59,985 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-04 14:03:06,895 [INFO] devmate: === DEVMATE starting ===
+2026-03-04 14:03:06,901 [INFO] modules.memory_module: MemoryManager initialised  session=5f8a3c17-49f8-45e2-b5b6-86fb91fc9f96
+2026-03-04 14:03:07,499 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-04 14:03:07,499 [INFO] devmate: DevMateController ready.
+2026-03-04 14:03:09,785 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-04 14:03:13,556 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-04 14:03:13,556 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-04 14:03:23,778 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-04 14:03:23,784 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-04 14:04:31,647 [INFO] devmate: User text: 'create an angular project'
+2026-03-04 14:04:32,148 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-04 14:04:35,145 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:04:35,145 [INFO] devmate: Intent: create_project  params: {'name': '', 'language': 'angular'}
+2026-03-04 14:04:57,979 [INFO] devmate: User text: 'Test_angular'
+2026-03-04 14:08:20,128 [INFO] devmate: User text: 'create an python project'
+2026-03-04 14:08:20,879 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:08:20,879 [INFO] devmate: Intent: create_project  params: {'name': 'my_python_project', 'language': 'python'}
+2026-03-04 14:09:56,189 [INFO] devmate: User text: 'add task drink water'
+2026-03-04 14:09:56,190 [INFO] modules.llm_module: Intent matched locally: add_task
+2026-03-04 14:09:56,190 [INFO] devmate: Intent: add_task  params: {'text': 'drink water', 'priority': 'medium'}
+2026-03-04 14:10:12,007 [INFO] devmate: User text: 'mark task one complete'
+2026-03-04 14:10:12,889 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:10:12,889 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-04 14:10:12,890 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 14:10:12,985 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:10:20,636 [INFO] devmate: User text: 'remove task 1'
+2026-03-04 14:10:20,637 [INFO] modules.llm_module: Intent matched locally: remove_task
+2026-03-04 14:10:20,637 [INFO] devmate: Intent: remove_task  params: {'id': '1'}
+2026-03-04 14:10:38,297 [INFO] devmate: User text: 'add task drink water'
+2026-03-04 14:10:38,299 [INFO] modules.llm_module: Intent matched locally: add_task
+2026-03-04 14:10:38,299 [INFO] devmate: Intent: add_task  params: {'text': 'drink water', 'priority': 'medium'}
+2026-03-04 14:11:02,884 [INFO] devmate: User text: 'add task complete_assignments'
+2026-03-04 14:11:02,885 [INFO] modules.llm_module: Intent matched locally: add_task
+2026-03-04 14:11:02,885 [INFO] devmate: Intent: add_task  params: {'text': 'complete_assignments', 'priority': 'medium'}
+2026-03-04 14:11:20,273 [INFO] devmate: User text: 'remove the task'
+2026-03-04 14:11:21,336 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:11:21,336 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-04 14:11:21,336 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-04 14:11:21,427 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-04 14:11:45,143 [INFO] devmate: User text: 'remove task 2'
+2026-03-04 14:11:45,144 [INFO] modules.llm_module: Intent matched locally: remove_task
+2026-03-04 14:11:45,144 [INFO] devmate: Intent: remove_task  params: {'id': '2'}
+2026-03-04 14:12:48,951 [INFO] devmate: User text: 'create a python project'
+2026-03-04 14:12:48,952 [INFO] modules.llm_module: Intent matched locally: create_project
+2026-03-04 14:12:48,953 [INFO] devmate: Intent: create_project  params: {'language': 'python'}
+2026-03-04 14:13:38,729 [INFO] devmate: User text: 'reminder to drink water in 10 seconds'
+2026-03-04 14:14:15,056 [INFO] devmate: User text: 'change the mode'
+2026-03-04 14:14:48,064 [INFO] devmate: User text: 'tesd'
+2026-03-04 14:21:42,019 [INFO] devmate: Shutting down DEVMATE …
+2026-03-04 14:21:42,019 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-04 14:21:42,026 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-04 14:21:42,026 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-04 14:21:42,283 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-05 19:51:07,732 [INFO] devmate: === DEVMATE starting ===
+2026-03-05 19:51:07,741 [INFO] modules.memory_module: MemoryManager initialised  session=f3b4b69e-fc5a-460f-a526-431d9f35f8ce
+2026-03-05 19:51:08,329 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-05 19:51:08,329 [INFO] devmate: DevMateController ready.
+2026-03-05 19:51:10,764 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-05 19:51:14,428 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-05 19:51:14,429 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-05 19:51:23,791 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-05 19:51:23,797 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-05 19:51:48,667 [INFO] devmate: User text: 'hello devamate'
+2026-03-05 19:51:49,151 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-05 19:51:52,548 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-05 19:51:52,549 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-05 19:51:52,550 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-05 19:51:52,640 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-05 19:52:02,920 [INFO] devmate: User text: 'create a repo'
+2026-03-05 19:52:02,921 [INFO] modules.llm_module: Intent matched locally: create_github_repo
+2026-03-05 19:52:02,921 [INFO] devmate: Intent: create_github_repo  params: {}
+2026-03-05 19:52:08,984 [INFO] devmate: User text: 'Devmate'
+2026-03-05 19:52:12,105 [INFO] devmate: User text: 'public'
+2026-03-05 19:52:20,352 [INFO] devmate: User text: 'push files'
+2026-03-05 19:52:20,353 [INFO] modules.llm_module: Intent matched locally: push_files_to_repo
+2026-03-05 19:52:20,353 [INFO] devmate: Intent: push_files_to_repo  params: {}
+2026-03-05 19:52:32,360 [INFO] devmate: User text: 'Devmate'

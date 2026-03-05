@@ -1,0 +1,299 @@
+================================================================================
+              DEVMATE – GITHUB OPERATIONS TEST GUIDE
+              ========================================
+       Complete Guide to Testing All Git & GitHub Features
+================================================================================
+
+
+================================================================================
+ PREREQUISITES (Must Do Before Testing)
+================================================================================
+
+  Before testing GitHub operations, complete these setup steps:
+
+  STEP 1: Verify Git is installed
+  ────────────────────────────────
+      git --version
+      Expected: git version 2.x.x or higher
+
+  STEP 2: Install GitHub CLI (gh)
+  ────────────────────────────────
+      Download from: https://cli.github.com/
+      Verify:  gh --version
+      Expected: gh version 2.x.x or higher
+
+  STEP 3: Authenticate GitHub CLI
+  ────────────────────────────────
+      gh auth login
+      → Select "GitHub.com"
+      → Select "HTTPS"
+      → Authenticate with your browser or token
+      → Verify:  gh auth status
+
+  STEP 4: Configure Git identity
+  ────────────────────────────────
+      git config --global user.name "Your Name"
+      git config --global user.email "your.email@example.com"
+
+  STEP 5: Launch DevMate
+  ───────────────────────
+      cd F:\project_folders\DevMate_backup
+      python devmate.py
+
+
+================================================================================
+ TEST 1: CREATE A PROJECT FIRST (Required)
+================================================================================
+
+  GitHub operations need a project to work with.
+  Create one first so DevMate can auto-detect it.
+
+  TYPE IN DEVMATE:
+      Create a Python project called GitHubTestProject
+
+  EXPECTED RESULT:
+      ✅ Project "GitHubTestProject" created at:
+         C:\Users\ADMIN\Projects\GitHubTestProject
+
+  VERIFY:
+      - Check that C:\Users\ADMIN\Projects\GitHubTestProject exists
+      - Contains: main.py, requirements.txt, .gitignore, README.md, .venv/
+
+
+================================================================================
+ TEST 2: INITIALIZE GIT
+================================================================================
+
+  Test git initialization in the project.
+
+  TYPE IN DEVMATE (any of these):
+  ─────────────────────────────────
+      Initialize git in my project
+      Init git
+      Set up git for my project
+      Initialize git in C:\Users\ADMIN\Projects\GitHubTestProject
+
+  EXPECTED RESULT:
+      ✅ Git repository initialised in <path>
+
+  VERIFY MANUALLY:
+      cd C:\Users\ADMIN\Projects\GitHubTestProject
+      git status
+      → Should show "On branch main" or "On branch master"
+      → Files should be untracked or committed
+
+
+================================================================================
+ TEST 3: PUSH TO GITHUB (Auto-Flow)
+================================================================================
+
+  This test checks the full automatic flow:
+  DevMate will auto-detect your last project, init git if needed,
+  commit files, and create a GitHub repo.
+
+  TYPE IN DEVMATE (any of these):
+  ─────────────────────────────────
+      Push my project to GitHub
+      Push to GitHub
+      Push my code to GitHub
+      Git push
+      Push code to remote
+
+  EXPECTED FLOW:
+      1. DevMate finds your last created project from memory
+      2. If no .git folder exists → runs "git init" automatically
+      3. Stages all files → runs "git add ."
+      4. Commits → runs "git commit -m 'Update via DEVMATE'"
+      5. Tries "git push origin main"
+      6. If no remote → creates a GitHub repo via "gh repo create"
+      7. Final message: ✅ GitHub repo '<name>' created and pushed.
+
+  VERIFY ON GITHUB:
+      - Go to https://github.com/YOUR_USERNAME
+      - You should see a new repo called "GitHubTestProject"
+      - Click on it → files should match your local project
+
+
+================================================================================
+ TEST 4: PUSH WITH CUSTOM COMMIT MESSAGE
+================================================================================
+
+  Test pushing with a specific commit message.
+
+  FIRST, modify a file in your project:
+      Open C:\Users\ADMIN\Projects\GitHubTestProject\main.py
+      Add a comment line: # Updated for testing
+      Save the file
+
+  TYPE IN DEVMATE:
+  ─────────────────
+      Push to GitHub with message "Added testing comment"
+
+  EXPECTED RESULT:
+      - DevMate commits with message "Added testing comment"
+      - Pushes to the existing GitHub remote
+      ✅ Pushed to origin/main
+
+  VERIFY ON GITHUB:
+      - Go to your repo on GitHub
+      - Last commit message should be "Added testing comment"
+      - main.py should have the new comment line
+
+
+================================================================================
+ TEST 5: CREATE A GITHUB REPO EXPLICITLY
+================================================================================
+
+  Test explicitly creating a GitHub repository.
+
+  FIRST, create a new project:
+      Create a Node project called MyNodeAPI
+
+  THEN TYPE:
+  ───────────
+      Create a GitHub repo for MyNodeAPI
+
+  EXPECTED RESULT:
+      - DevMate initialises git (if needed)
+      - Commits files
+      - Creates a GitHub repo named "MyNodeAPI"
+      ✅ GitHub repo 'MyNodeAPI' created and pushed.
+
+  VERIFY ON GITHUB:
+      - Check https://github.com/YOUR_USERNAME/MyNodeAPI
+
+
+================================================================================
+ TEST 6: PUSH AFTER CREATING REACT/ANGULAR PROJECT
+================================================================================
+
+  Test GitHub integration with CLI-scaffolded projects.
+
+  STEP 1: Create a React project
+      Create a React project called ReactGitTest
+
+  STEP 2: Wait for scaffolding to complete (1-3 minutes)
+      Expected: 🎉 React project 'ReactGitTest' created
+
+  STEP 3: Push to GitHub
+      Push my project to GitHub
+
+  EXPECTED RESULT:
+      - DevMate finds "ReactGitTest" as the last project
+      - Initialises git (React projects with --skip-git won't have .git)
+      - Commits all React files
+      - Creates a GitHub repo and pushes
+      ✅ GitHub repo 'ReactGitTest' created and pushed.
+
+
+================================================================================
+ ERROR SCENARIOS & TROUBLESHOOTING
+================================================================================
+
+  ERROR: "Git commit failed"
+  ──────────────────────────
+  CAUSE: No files to commit (nothing changed since last commit)
+  FIX:   Make a change to any file, then try again
+
+  ERROR: "git push failed"
+  ────────────────────────
+  CAUSE: No remote configured, or wrong branch name
+  FIX:   DevMate auto-creates a GitHub repo as fallback.
+         If that also fails, run manually:
+           gh auth login
+           cd <project-path>
+           gh repo create <name> --public --source . --push
+
+  ERROR: "gh repo create failed"
+  ──────────────────────────────
+  CAUSE: GitHub CLI not installed or not authenticated
+  FIX:
+    1. Install GitHub CLI:     https://cli.github.com/
+    2. Authenticate:           gh auth login
+    3. Verify:                 gh auth status
+
+  ERROR: "Command not found: git"
+  ────────────────────────────────
+  CAUSE: Git is not installed or not in PATH
+  FIX:   Install Git from https://git-scm.com/
+         Restart your terminal after installation
+
+  ERROR: "Command not found: gh"
+  ───────────────────────────────
+  CAUSE: GitHub CLI is not installed or not in PATH
+  FIX:   Install from https://cli.github.com/
+         Restart your terminal after installation
+
+  ERROR: "Project path not found"
+  ────────────────────────────────
+  CAUSE: No project was created yet, or the project was deleted
+  FIX:   Create a project first:
+         "Create a Python project called MyProject"
+
+
+================================================================================
+ QUICK TEST CHECKLIST
+================================================================================
+
+  Run these in order to test the full GitHub workflow:
+
+  [ ] 1. Verify prerequisites:
+         git --version  →  2.x.x ✓
+         gh --version   →  2.x.x ✓
+         gh auth status →  Logged in ✓
+
+  [ ] 2. Launch DevMate:
+         python devmate.py
+
+  [ ] 3. Create a project:
+         "Create a Python project called GitTest"
+
+  [ ] 4. Initialize git:
+         "Initialize git in my project"
+
+  [ ] 5. Push to GitHub:
+         "Push my project to GitHub"
+
+  [ ] 6. Verify on GitHub:
+         Check https://github.com/YOUR_USERNAME/GitTest
+
+  [ ] 7. Make a change and push again:
+         Modify a file in the project
+         "Push to GitHub with message 'Updated via DevMate'"
+
+  [ ] 8. Verify commit on GitHub:
+         Check the latest commit message matches
+
+  [ ] 9. Test auto-flow (all-in-one):
+         "Create a Node project called AutoTest"
+         "Push my project to GitHub"
+         → Should auto-init git, commit, create repo, and push
+
+  [ ] 10. Clean up (optional):
+          Delete test repos on GitHub:
+            gh repo delete YOUR_USERNAME/GitTest --yes
+            gh repo delete YOUR_USERNAME/AutoTest --yes
+
+
+================================================================================
+ SUPPORTED GITHUB COMMANDS SUMMARY
+================================================================================
+
+  ┌─────────────────────────────────────┬──────────────────────────────────────┐
+  │ What you say                        │ What DevMate does                    │
+  ├─────────────────────────────────────┼──────────────────────────────────────┤
+  │ "Initialize git"                    │ git init in project directory        │
+  │ "Init git in <path>"                │ git init in specified path           │
+  │ "Push to GitHub"                    │ Commit + push (auto git-init)        │
+  │ "Push my project to GitHub"         │ Same as above                        │
+  │ "Push my code to GitHub"            │ Same as above                        │
+  │ "Git push"                          │ Same as above                        │
+  │ "Push code to remote"               │ Same as above                        │
+  │ "Push to GitHub with message '...'" │ Commit with custom message + push    │
+  │ "Create a GitHub repo for <name>"   │ Create repo on GitHub + push         │
+  └─────────────────────────────────────┴──────────────────────────────────────┘
+
+
+================================================================================
+                       END OF GITHUB TEST GUIDE
+================================================================================

@@ -1,0 +1,29 @@
+# ──────────────────────────────────────────────────────────
+# DEVMATE – Python Dependencies
+# Install with:  pip install -r requirements.txt
+# ──────────────────────────────────────────────────────────
+
+# ── LLM ──────────────────────────────────────────────────
+ollama>=0.2.0                   # Ollama Python client (local LLM)
+
+# ── Speech-to-Text ───────────────────────────────────────
+openai-whisper>=20231117        # Offline STT (base model = 145 MB)
+SpeechRecognition>=3.10.0       # Microphone capture helper
+
+# ── Text-to-Speech ───────────────────────────────────────
+TTS>=0.22.0                     # Coqui TTS (VITS model)
+
+# ── Audio I/O ────────────────────────────────────────────
+pyaudio>=0.2.13                 # Microphone recording
+sounddevice>=0.4.6              # Audio playback (cross-platform)
+soundfile>=0.12.1               # Read/write WAV files
+
+# ── Time & Scheduling ────────────────────────────────────
+python-dateutil>=2.9.0          # Human time string parsing
+
+# ── Utilities ────────────────────────────────────────────
+pillow>=10.0.0                  # Image support for Tkinter assets
+
+# ── Development / Testing ────────────────────────────────
+pytest>=8.0.0
+pytest-mock>=3.12.0

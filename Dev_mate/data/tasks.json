@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {
+      "id": 3,
+      "text": "complete_assignments",
+      "priority": "medium",
+      "done": false,
+      "created_at": "2026-03-04T14:11:02.892499"
+    }
+  ],
+  "next_id": 4
+}
