@@ -9,6 +9,7 @@ from .scheduler_module import SchedulerModule
 from .ui_module import DevMateGUI
 from .task_manager import TaskManager
 from .controller import DevMateController
+from .google_workspace import GWSManager
 
 __all__ = [
     "MemoryManager",
@@ -19,4 +20,5 @@ __all__ = [
     "DevMateGUI",
     "TaskManager",
     "DevMateController",
+    "GWSManager",
 ]

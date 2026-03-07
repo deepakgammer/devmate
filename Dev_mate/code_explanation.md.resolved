@@ -1,0 +1,74 @@
+# DEVMATE Codebase Explanation
+
+Welcome to the DEVMATE codebase! If you are a "vibe coder" or just getting familiar with how everything connects, this guide will explain exactly how the code works under the hood. 
+
+DEVMATE is designed to be a fully offline, privacy-first AI developer assistant. It uses a **modular architecture** where different files handle specific jobs, and a central "Controller" coordinates everything.
+
+Here is a simple breakdown of how the whole system is built and how data flows through it.
+
+---
+
+## 1. The Entry Point: Where it all begins
+- **[devmate.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/devmate.py)**: Think of this as the "On/Off Switch". When you run `python devmate.py`, this file is executed. It sets up the logging (so errors and activity are saved to a file) and then creates and runs the [DevMateController](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py#50-1165).
+- **[config.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/config.py)**: This is the "Settings Menu" of the code. It contains all the hardcoded settings: folder paths, the dark-mode UI colors, which AI models to use (like `phi3:mini` and Whisper `base`), timing timeouts, and list of safe commands. No logic happens here; it's just a dictionary of settings.
+
+---
+
+## 2. The Brain & Manager
+- **[modules/controller.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py) ([DevMateController](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py#50-1165))**: This is the **CEO** of the application. 
+  - It creates instances of every other module (UI, LLM, Memory, Speech, etc.).
+  - When you type or speak a command, the UI sends that text to the Controller.
+  - The Controller sends the text to the LLM to figure out your "intent" (what you want to do).
+  - Based on the intent (e.g., [create_project](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/automation_module.py#93-161), [add_reminder](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/scheduler_module.py#127-172), `general_chat`), the Controller delegates the actual work to the specific module designed for that job.
+
+---
+
+## 3. The AI & Logic Modules
+- **[modules/llm_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/llm_module.py)**: The "Translator & Conversationalist". 
+  - It talks to your local **Ollama** server. 
+  - **Intent Detection**: Before it generates a chat reply, it tries to parse your text into an "Intent" (like `{"intent": "init_git"}`). It first uses lightning-fast regex (keyword matching) to guess what you want. If it fails, it asks Ollama to categorize the prompt.
+  - **Chatting**: If the intent is just `general_chat`, it asks Ollama to generate a conversational, helpful developer response.
+- **[modules/speech_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/speech_module.py)**: The "Ears & Mouth".
+  - Runs entirely offline using AI models.
+  - **Ears (STT)**: Uses OpenAI's **Whisper** model to listen to your microphone, detect when you stop speaking, and turn the audio into text.
+  - **Mouth (TTS)**: Uses **Coqui VITS** to read text out loud. It runs in the background so it doesn't freeze the app while speaking.
+
+---
+
+## 4. The Action Modules
+- **[modules/automation_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/automation_module.py)**: The "Hands". This module interacts with your computer's OS.
+  - **Project Scaffolding**: It creates folders and files for new Python, Node, React, or Angular projects.
+  - **Git & GitHub**: It runs tools like `git init`, `git push`, or `gh repo create`.
+  - **Safe Commands**: It checks terminal commands against a whitelist in [config.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/config.py) before actually running them, protecting you from dangerous commands like `rm -rf /`.
+- **[modules/scheduler_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/scheduler_module.py)**: The "Alarm Clock".
+  - It understands human time (e.g., "remind me in 5 minutes").
+  - It creates background threads (`threading.Timer`) that simply wait for the specified time and then trigger a popup or TTS reminder.
+- **[modules/task_manager.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/task_manager.py)**: The "Clipboard".
+  - A simple task manager that saves your To-Do items (like "Write unit tests") to a local JSON file ([data/tasks.json](file:///c:/Users/ADMIN/Desktop/Dev_mate/data/tasks.json)). You can add, list, and complete tasks.
+
+---
+
+## 5. Storage & Interface
+- **[modules/memory_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/memory_module.py)**: The "Filing Cabinet". DEVMATE has Hybrid Memory.
+  - **Short-term Memory**: Keeps the last 15-20 chat messages directly in RAM so the LLM remembers the context of your current conversation instantly.
+  - **Long-term Memory**: Saves everything permanently into an SQLite database ([data/devmate.db](file:///c:/Users/ADMIN/Desktop/Dev_mate/data/devmate.db)). It stores chat history, preferences, and tracks which projects you've created.
+- **[modules/ui_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/ui_module.py)**: The "Face" of the app.
+  - Built using Python's built-in `tkinter` library. It draws the dark-mode window, the chat bubbles, the task list sidebar, and the typing input bar.
+  - It is "dumb" — it doesn't process data. It just catches your button clicks/typing and passes them to the [Controller](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py#50-1165), and when the [Controller](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py#50-1165) has an answer, it receives the text and displays it on the screen.
+
+---
+
+## Summary of the Data Flow:
+Imagine you click the Microphone and say: *"Create a new python project called snake"*
+
+1. **UI ([ui_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/ui_module.py))** registers the click and calls the Controller's voice input method.
+2. **Controller ([controller.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/controller.py))** tells the Speech Module to listen.
+3. **Speech ([speech_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/speech_module.py))** records audio, runs Whisper, gets the text: *"Create a new python project called snake"*. It passes this to the Controller.
+4. **Controller** passes the text to the LLM Module.
+5. **LLM ([llm_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/llm_module.py))** analyzes it and says: "Aha! The intent is [create_project](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/automation_module.py#93-161) and the parameters are `name: snake`, `mode: python`."
+6. **Controller** sees [create_project](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/automation_module.py#93-161), and asks the Automation Module to do it.
+7. **Automation ([automation_module.py](file:///c:/Users/ADMIN/Desktop/Dev_mate/modules/automation_module.py))** creates the folder `snake`, writes `main.py`, and sets up a virtual environment on your hard drive.
+8. **Controller** tells the Memory Module to save this event to the database.
+9. **Controller** finally tells the UI to show a chat bubble saying "I have created the Python project 'snake' for you!" and asks the Speech Module to read it out loud.
+
+That is DEVMATE from top to bottom!

@@ -62,7 +62,7 @@ COMMAND_BLACKLIST = {
 # Safe prefixes – only commands starting with these are allowed
 COMMAND_WHITELIST_PREFIXES = (
     "echo", "python", "pip", "npm", "npx", "node", "git",
-    "gh", "ls", "dir", "cat", "type", "mkdir",
+    "gh", "gws", "ls", "dir", "cat", "type", "mkdir",
     "cd", "pwd", "pytest", "black", "isort",
     "poetry", "uvicorn", "flask", "django",
 )
@@ -100,6 +100,11 @@ FONTS = {
     "small":    ("Segoe UI", 9),
     "input":    ("Segoe UI", 12),
 }
+
+# ────────── Google Workspace (gws CLI) ────────────────────
+GWS_TIMEOUT_SEC  = 30          # subprocess timeout for gws commands
+GWS_AUTH_SETUP   = "gws auth setup"
+GWS_AUTH_LOGIN   = "gws auth login"
 
 # ────────────────────── Logging ───────────────────────────
 LOG_MAX_BYTES   = 1_000_000   # rotate log at 1 MB

@@ -20,6 +20,9 @@ import config
 
 logger = logging.getLogger(__name__)
 
+# Import GWS intent parser
+from modules.google_workspace.gws_parser import detect_gws_intent
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Keyword-Based Intent Detection (fast, no LLM needed)
@@ -177,6 +180,11 @@ def _detect_intent_local(text: str) -> Optional[Dict[str, Any]]:
     if m:
         return {"intent": "change_mode", "params": {"mode": m.group(1).upper()}}
 
+    # ── Google Workspace intents ──────────────────────────────────────────
+    gws_result = detect_gws_intent(text)
+    if gws_result is not None:
+        return gws_result
+
     # No pattern matched → return None so LLM can try
     return None
 
@@ -205,6 +213,21 @@ Valid intents and their expected params:
 | complete_task        | id (int or str)                                          |
 | run_command          | command (str), cwd (str)                                 |
 | change_mode          | mode (str: DEV/MATE)                                     |
+| gws_drive_list       | (none)                                                   |
+| gws_drive_upload     | file_path (str)                                          |
+| gws_drive_download   | file_name (str)                                          |
+| gws_drive_search     | query (str)                                               |
+| gws_sheets_create    | title (str)                                              |
+| gws_sheets_append    | title (str)                                              |
+| gws_sheets_read      | title (str)                                              |
+| gws_gmail_send       | to (str), subject (str), body (str)                      |
+| gws_gmail_list       | (none)                                                   |
+| gws_gmail_read       | message_id (str)                                         |
+| gws_calendar_create  | summary (str), start_time (str)                          |
+| gws_calendar_list    | (none)                                                   |
+| gws_docs_create      | title (str)                                              |
+| gws_docs_list        | (none)                                                   |
+| gws_publish_report   | (none)                                                   |
 | general_chat         | (none)                                                   |
 
 Rules:

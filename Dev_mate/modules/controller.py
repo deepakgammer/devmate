@@ -40,6 +40,7 @@ from modules.llm_module import LLMModule
 from modules.speech_module import SpeechModule
 from modules.automation_module import AutomationModule
 from modules.scheduler_module import SchedulerModule
+from modules.google_workspace import GWSManager
 from modules.ui_module import DevMateGUI
 from modules.task_manager import TaskManager
 
@@ -61,6 +62,7 @@ class DevMateController:
         self.scheduler  = SchedulerModule(fire_callback=self._on_reminder_fire)
         self.automation = AutomationModule(output_callback=self._on_cmd_output)
         self.tasks      = TaskManager()
+        self.gws        = GWSManager(output_callback=self._on_cmd_output)
 
         # GUI (created last; passes callbacks INTO controller)
         self.gui = DevMateGUI(
@@ -216,6 +218,22 @@ class DevMateController:
             "run_command":         self._handle_run_command,
             "change_mode":         self._handle_change_mode,
             "time_date":           self._handle_time_date,
+            # Google Workspace intents
+            "gws_drive_list":      self._handle_gws_drive_list,
+            "gws_drive_upload":    self._handle_gws_drive_upload,
+            "gws_drive_download":  self._handle_gws_drive_download,
+            "gws_drive_search":    self._handle_gws_drive_search,
+            "gws_sheets_create":   self._handle_gws_sheets_create,
+            "gws_sheets_append":   self._handle_gws_sheets_append,
+            "gws_sheets_read":     self._handle_gws_sheets_read,
+            "gws_gmail_send":      self._handle_gws_gmail_send,
+            "gws_gmail_list":      self._handle_gws_gmail_list,
+            "gws_gmail_read":      self._handle_gws_gmail_read,
+            "gws_calendar_create": self._handle_gws_calendar_create,
+            "gws_calendar_list":   self._handle_gws_calendar_list,
+            "gws_docs_create":     self._handle_gws_docs_create,
+            "gws_docs_list":       self._handle_gws_docs_list,
+            "gws_publish_report":  self._handle_gws_publish_report,
             "general_chat":        self._handle_general_chat,
         }
 
@@ -861,6 +879,219 @@ class DevMateController:
         # TTS (non-blocking, respects toggle)
         if self.gui.tts_enabled:
             self.speech.speak_async(text)
+
+    # ──────────────────── Google Workspace Handlers ───────────────────────────
+
+    def _gws_auth_guard(self) -> bool:
+        """
+        Check GWS authentication. If not authenticated, show instructions
+        and return False. Otherwise return True.
+        """
+        if not self.gws.check_auth():
+            self._reply(self.gws.get_auth_instructions())
+            return False
+        return True
+
+    def _gws_reply(self, ok: bool, msg: str) -> None:
+        """Format a GWS result with mode-awareness and reply."""
+        import config as _cfg
+        if ok:
+            prefix = "✅ " if _cfg.CURRENT_MODE == "DEV" else "🎉 Nice! "
+        else:
+            prefix = "❌ " if _cfg.CURRENT_MODE == "DEV" else "😬 Oops — "
+        self._reply(f"{prefix}{msg}")
+
+    # ── Drive ────────────────────────────────────────────────────────────────
+
+    def _handle_gws_drive_list(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        self.gui.set_status("Listing Drive files …", ok=True)
+        self.gui.log_activity("GWS: listing Drive files")
+        ok, msg = self.gws.drive_list()
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_drive_upload(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        file_path = params.get("file_path", "").strip()
+        if not file_path:
+            self._reply("❌ Please specify which file to upload.\nExample: \"upload report.pdf to drive\"")
+            return
+        self.gui.set_status(f"Uploading '{file_path}' to Drive …", ok=True)
+        self.gui.log_activity(f"GWS: uploading {file_path} to Drive")
+        ok, msg = self.gws.drive_upload(file_path)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_drive_download(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        file_name = params.get("file_name", "").strip()
+        if not file_name:
+            self._reply("❌ Please specify which file to download.\nExample: \"download drive file report.pdf\"")
+            return
+        self.gui.set_status(f"Downloading '{file_name}' from Drive …", ok=True)
+        self.gui.log_activity(f"GWS: downloading {file_name} from Drive")
+        ok, msg = self.gws.drive_download(file_name)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_drive_search(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        query = params.get("query", "").strip()
+        if not query:
+            self._reply("❌ Please provide a search term.\nExample: \"search drive for budget\"")
+            return
+        self.gui.set_status(f"Searching Drive for '{query}' …", ok=True)
+        self.gui.log_activity(f"GWS: searching Drive for '{query}'")
+        ok, msg = self.gws.drive_search(query)
+        self._gws_reply(ok, msg)
+
+    # ── Sheets ───────────────────────────────────────────────────────────────
+
+    def _handle_gws_sheets_create(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        title = params.get("title", "").strip()
+        if not title:
+            self._reply("❌ Please provide a spreadsheet name.\nExample: \"create sheet bug_tracker\"")
+            return
+        self.gui.set_status(f"Creating spreadsheet '{title}' …", ok=True)
+        self.gui.log_activity(f"GWS: creating spreadsheet '{title}'")
+        ok, msg = self.gws.sheets_create(title)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_sheets_append(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        title = params.get("title", "").strip()
+        spreadsheet_id = params.get("spreadsheet_id", "").strip()
+        values = params.get("values", "")
+        if not spreadsheet_id and not title:
+            self._reply("❌ Please specify the spreadsheet.\nExample: \"add row to sheet bug_tracker\"")
+            return
+        sid = spreadsheet_id or title
+        self.gui.set_status(f"Appending rows to '{sid}' …", ok=True)
+        self.gui.log_activity(f"GWS: appending to spreadsheet '{sid}'")
+        ok, msg = self.gws.sheets_append(sid, "Sheet1!A:Z", values or "")
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_sheets_read(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        title = params.get("title", "").strip()
+        spreadsheet_id = params.get("spreadsheet_id", "").strip()
+        if not spreadsheet_id and not title:
+            self._reply("❌ Please specify the spreadsheet.\nExample: \"read sheet bug_tracker\"")
+            return
+        sid = spreadsheet_id or title
+        self.gui.set_status(f"Reading spreadsheet '{sid}' …", ok=True)
+        self.gui.log_activity(f"GWS: reading spreadsheet '{sid}'")
+        ok, msg = self.gws.sheets_read(sid)
+        self._gws_reply(ok, msg)
+
+    # ── Gmail ────────────────────────────────────────────────────────────────
+
+    def _handle_gws_gmail_send(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        to = params.get("to", "").strip()
+        subject = params.get("subject", "")
+        body = params.get("body", "")
+        if not to:
+            self._reply("❌ Please specify a recipient.\nExample: \"send email to user@example.com\"")
+            return
+        # If only recipient given, ask for subject/body could be done here
+        # For now, use defaults
+        if not subject:
+            subject = "Message from DevMate"
+        if not body:
+            body = "Sent via DevMate assistant."
+        self.gui.set_status(f"Sending email to '{to}' …", ok=True)
+        self.gui.log_activity(f"GWS: sending email to {to}")
+        ok, msg = self.gws.gmail_send(to, subject, body)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_gmail_list(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        self.gui.set_status("Listing inbox messages …", ok=True)
+        self.gui.log_activity("GWS: listing inbox")
+        ok, msg = self.gws.gmail_list()
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_gmail_read(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        message_id = params.get("message_id", "").strip()
+        if not message_id:
+            self._reply("❌ Please provide a message ID.\nExample: \"read email 18abc123\"")
+            return
+        self.gui.set_status(f"Reading email {message_id} …", ok=True)
+        self.gui.log_activity(f"GWS: reading email {message_id}")
+        ok, msg = self.gws.gmail_read(message_id)
+        self._gws_reply(ok, msg)
+
+    # ── Calendar ─────────────────────────────────────────────────────────────
+
+    def _handle_gws_calendar_create(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        summary = params.get("summary", "").strip()
+        start_time = params.get("start_time", "").strip()
+        end_time = params.get("end_time", "")
+        if not summary:
+            self._reply("❌ Please provide an event name.\nExample: \"schedule playtest tomorrow at 6pm\"")
+            return
+        if not start_time:
+            self._reply("❌ Please provide a time for the event.\nExample: \"schedule playtest tomorrow at 6pm\"")
+            return
+        self.gui.set_status(f"Creating event '{summary}' …", ok=True)
+        self.gui.log_activity(f"GWS: creating event '{summary}' at {start_time}")
+        ok, msg = self.gws.calendar_create(summary, start_time, end_time)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_calendar_list(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        self.gui.set_status("Listing calendar events …", ok=True)
+        self.gui.log_activity("GWS: listing calendar events")
+        ok, msg = self.gws.calendar_list()
+        self._gws_reply(ok, msg)
+
+    # ── Docs ─────────────────────────────────────────────────────────────────
+
+    def _handle_gws_docs_create(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        title = params.get("title", "").strip()
+        if not title:
+            self._reply("❌ Please provide a document title.\nExample: \"create document design_spec\"")
+            return
+        self.gui.set_status(f"Creating document '{title}' …", ok=True)
+        self.gui.log_activity(f"GWS: creating document '{title}'")
+        ok, msg = self.gws.docs_create(title)
+        self._gws_reply(ok, msg)
+
+    def _handle_gws_docs_list(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        self.gui.set_status("Listing documents …", ok=True)
+        self.gui.log_activity("GWS: listing documents")
+        ok, msg = self.gws.docs_list()
+        self._gws_reply(ok, msg)
+
+    # ── Publish Report (composite) ───────────────────────────────────────────
+
+    def _handle_gws_publish_report(self, params: Dict) -> None:
+        if not self._gws_auth_guard():
+            return
+        self.gui.set_status("Publishing report …", ok=True)
+        self.gui.log_activity("GWS: publishing report")
+        ok, msg = self.gws.publish_report(
+            output_callback=lambda s: self.gui.add_message("system", s)
+        )
+        self._gws_reply(ok, msg)
 
     def _on_cmd_output(self, line: str) -> None:
         """Stream subprocess output to both chat and activity log."""

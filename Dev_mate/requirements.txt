@@ -27,3 +27,8 @@ pillow>=10.0.0                  # Image support for Tkinter assets
 # ── Development / Testing ────────────────────────────────
 pytest>=8.0.0
 pytest-mock>=3.12.0
+
+# ── Google Workspace ─────────────────────────────────────
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.0.0

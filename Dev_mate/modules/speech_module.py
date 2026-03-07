@@ -182,8 +182,20 @@ class SpeechModule:
             return
 
         import re
-        text = re.sub(r'[*_`]+', '', text)
+        # Remove markdown symbols
+        text = re.sub(r'[*_`\n]+', ' ', text)
         text = re.sub(r'^#+\s*', '', text, flags=re.MULTILINE)
+        # Remove curly braces and brackets which can cause shape mismatches in Coqui TTS
+        text = re.sub(r'[\{\}\[\]]', '', text)
+        text = " ".join(text.split())
+        
+        # Coqui VITS fails on extremely long sequences; truncate for safety
+        if len(text) > 400:
+            text = text[:397] + "..."
+
+        if not text.strip():
+            return
+
         if self._is_speaking:
             logger.debug("TTS busy – skipping utterance.")
             return
@@ -208,7 +220,8 @@ class SpeechModule:
             finally:
                 self._is_speaking = False
                 try:
-                    os.unlink(wav_path)
+                    if 'wav_path' in locals():
+                        os.unlink(wav_path)
                 except Exception:
                     pass
 
