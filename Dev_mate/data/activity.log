@@ -13,3 +13,361 @@
 2026-03-05 22:55:26,003 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
 2026-03-05 22:55:26,003 [INFO] devmate: Intent: general_chat  params: {}
 2026-03-05 22:55:26,095 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 10:37:12,375 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:37:12,391 [INFO] modules.memory_module: MemoryManager initialised  session=45fce9b8-da78-40ea-910d-ad6b4509f8d6
+2026-03-09 10:37:13,265 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 10:37:50,584 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:37:50,585 [INFO] modules.memory_module: MemoryManager initialised  session=702aa536-e619-4ebe-b1a8-d111bc935535
+2026-03-09 10:37:53,613 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 10:38:16,557 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:38:16,559 [INFO] modules.memory_module: MemoryManager initialised  session=2b2f523c-b4ca-48d8-8121-a9e04db9e35d
+2026-03-09 10:38:18,717 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 10:38:29,933 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:38:29,934 [INFO] modules.memory_module: MemoryManager initialised  session=e8fefc41-b448-4b9d-ace6-3a8984e332c2
+2026-03-09 10:38:32,045 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 10:39:08,442 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:39:08,443 [INFO] modules.memory_module: MemoryManager initialised  session=e855b5da-fda5-4db0-b7a4-8fb689cd8f90
+2026-03-09 10:39:11,224 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:39:11,224 [INFO] devmate: DevMateController ready.
+2026-03-09 10:39:13,231 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:39:16,631 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 10:39:16,631 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:39:24,865 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:39:24,873 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:42:29,777 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:42:29,784 [INFO] modules.memory_module: MemoryManager initialised  session=9260f649-9e99-4786-8b51-1cfc45087497
+2026-03-09 10:44:44,858 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:44:44,864 [INFO] modules.memory_module: MemoryManager initialised  session=11f1e6f5-37d1-490e-be37-e86bf3fc2f4b
+2026-03-09 10:44:47,798 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:44:48,502 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:44:48,502 [INFO] devmate: DevMateController ready.
+2026-03-09 10:45:09,994 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:45:10,000 [INFO] modules.memory_module: MemoryManager initialised  session=1852e1b1-c333-47d6-821e-a2f54520c147
+2026-03-09 10:45:12,955 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:45:13,660 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:45:13,660 [INFO] devmate: DevMateController ready.
+2026-03-09 10:45:16,494 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 10:45:16,495 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:45:21,673 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:46:00,452 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:46:00,460 [INFO] modules.memory_module: MemoryManager initialised  session=6bc759ac-1d52-4ba7-bdab-9d7637f870e0
+2026-03-09 10:46:03,468 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:46:04,199 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:46:04,199 [INFO] devmate: DevMateController ready.
+2026-03-09 10:46:07,134 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 10:46:07,134 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:46:11,653 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:47:28,995 [ERROR] modules.speech_module: STT error: listening timed out while waiting for phrase to start
+2026-03-09 10:47:39,367 [INFO] modules.speech_module: STT transcript: 'Can you hear me?'
+2026-03-09 10:47:39,367 [INFO] devmate: User text: 'Can you hear me?'
+2026-03-09 10:47:39,920 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-09 10:47:44,381 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 10:47:44,381 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 10:47:44,381 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 10:47:44,471 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 10:48:04,723 [ERROR] modules.speech_module: STT error: listening timed out while waiting for phrase to start
+2026-03-09 10:48:19,765 [ERROR] modules.speech_module: STT error: listening timed out while waiting for phrase to start
+2026-03-09 10:48:25,999 [INFO] devmate: User text: 'open google'
+2026-03-09 10:48:25,999 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 10:48:26,002 [INFO] devmate: Intent: os_open_app  params: {'name': 'google'}
+2026-03-09 10:48:37,652 [INFO] devmate: User text: 'open whatsapp'
+2026-03-09 10:48:37,654 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 10:48:37,654 [INFO] devmate: Intent: os_open_app  params: {'name': 'whatsapp'}
+2026-03-09 10:48:49,523 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:48:49,531 [INFO] modules.memory_module: MemoryManager initialised  session=e14f1f0e-65e4-4d05-a402-4512e22aa231
+2026-03-09 10:48:53,183 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:48:54,167 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:48:54,167 [INFO] devmate: DevMateController ready.
+2026-03-09 10:48:57,393 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 10:48:57,393 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:48:57,986 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:49:02,573 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:49:02,573 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:49:19,592 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:49:19,593 [INFO] modules.memory_module: MemoryManager initialised  session=079e8aea-9543-4ed8-9fcc-722e171aa80f
+2026-03-09 10:49:22,483 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:49:23,177 [INFO] modules.speech_module: Loading Whisper 'base' model …
+2026-03-09 10:49:23,177 [INFO] devmate: DevMateController ready.
+2026-03-09 10:49:25,975 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 10:49:25,975 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:49:32,651 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:56:47,026 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:56:47,036 [INFO] modules.memory_module: MemoryManager initialised  session=8703fefd-f98b-4f6e-b277-74b3ef9ffdd8
+2026-03-09 10:56:49,885 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:56:50,602 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 10:56:50,602 [INFO] devmate: DevMateController ready.
+2026-03-09 10:57:03,052 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:57:03,063 [INFO] modules.memory_module: MemoryManager initialised  session=6c5aaea3-8116-4d70-913c-3a8376571748
+2026-03-09 10:57:05,999 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:57:06,686 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 10:57:06,686 [INFO] devmate: DevMateController ready.
+2026-03-09 10:57:19,285 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:57:19,285 [INFO] modules.memory_module: MemoryManager initialised  session=7230b45f-3390-4293-9c44-b98794790140
+2026-03-09 10:57:22,167 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:57:22,853 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 10:57:22,859 [INFO] devmate: DevMateController ready.
+2026-03-09 10:57:29,202 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 10:57:33,417 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 10:57:34,918 [ERROR] modules.speech_module: Failed to load Whisper: [WinError 1] Incorrect function
+2026-03-09 10:57:34,918 [WARNING] modules.speech_module: Whisper STT not available – voice input disabled. Install with: pip install openai-whisper
+2026-03-09 10:58:03,305 [ERROR] modules.speech_module: STT error: listening timed out while waiting for phrase to start
+2026-03-09 10:59:52,886 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 10:59:52,886 [INFO] modules.memory_module: MemoryManager initialised  session=a16ce7ab-cdb5-400b-9553-371b59edac84
+2026-03-09 10:59:55,842 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 10:59:56,543 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 10:59:56,543 [INFO] devmate: DevMateController ready.
+2026-03-09 11:00:10,023 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:00:10,029 [INFO] modules.memory_module: MemoryManager initialised  session=05e32cd0-d5d9-44ce-b787-2a621b9805c5
+2026-03-09 11:00:12,961 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:00:13,660 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:00:13,660 [INFO] devmate: DevMateController ready.
+2026-03-09 11:00:22,634 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:00:22,642 [INFO] modules.memory_module: MemoryManager initialised  session=aadd6832-9bd6-4450-9af9-b8aedd1423c5
+2026-03-09 11:00:25,535 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:00:26,236 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:00:26,236 [INFO] devmate: DevMateController ready.
+2026-03-09 11:00:35,499 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:00:35,502 [INFO] modules.memory_module: MemoryManager initialised  session=60215070-b484-437a-9720-3fbbbf930400
+2026-03-09 11:00:38,423 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:00:39,133 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:00:39,136 [INFO] devmate: DevMateController ready.
+2026-03-09 11:00:45,507 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:00:49,783 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:00:51,331 [ERROR] modules.speech_module: Failed to load Whisper: [WinError 1] Incorrect function
+2026-03-09 11:00:51,333 [WARNING] modules.speech_module: Whisper STT not available – voice input disabled. Install with: pip install openai-whisper
+2026-03-09 11:01:02,001 [INFO] devmate: User text: 'open google'
+2026-03-09 11:01:02,006 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:01:02,009 [INFO] devmate: Intent: os_open_app  params: {'name': 'google'}
+2026-03-09 11:01:21,537 [INFO] devmate: User text: 'open github on google'
+2026-03-09 11:01:21,537 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:01:21,537 [INFO] devmate: Intent: os_open_app  params: {'name': 'github on google'}
+2026-03-09 11:01:32,943 [INFO] devmate: User text: 'open github'
+2026-03-09 11:01:32,947 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:01:32,949 [INFO] devmate: Intent: os_open_app  params: {'name': 'github'}
+2026-03-09 11:01:44,399 [INFO] devmate: User text: 'open youtube'
+2026-03-09 11:01:44,402 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:01:44,402 [INFO] devmate: Intent: os_open_app  params: {'name': 'youtube'}
+2026-03-09 11:01:54,249 [INFO] devmate: User text: 'open whatsapp'
+2026-03-09 11:01:54,249 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:01:54,253 [INFO] devmate: Intent: os_open_app  params: {'name': 'whatsapp'}
+2026-03-09 11:02:17,610 [INFO] devmate: User text: 'open discord'
+2026-03-09 11:02:17,613 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:02:17,613 [INFO] devmate: Intent: os_open_app  params: {'name': 'discord'}
+2026-03-09 11:04:36,867 [INFO] devmate: Shutting down DEVMATE …
+2026-03-09 11:04:36,867 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-09 11:04:36,872 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:04:36,873 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-09 11:07:31,002 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:07:31,009 [INFO] modules.memory_module: MemoryManager initialised  session=48a6e7a2-63b8-4d2d-9e21-3e96d9971b4b
+2026-03-09 11:07:34,010 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:07:34,719 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:07:34,719 [INFO] devmate: DevMateController ready.
+2026-03-09 11:08:32,399 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:08:32,405 [INFO] modules.memory_module: MemoryManager initialised  session=a5c34b14-835c-4069-8461-3d7a7bb51b5f
+2026-03-09 11:08:35,313 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:08:36,013 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:08:36,013 [INFO] devmate: DevMateController ready.
+2026-03-09 11:08:49,152 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:08:49,159 [INFO] modules.memory_module: MemoryManager initialised  session=dc2e5419-21a0-4c94-8a92-758e9ffd1a93
+2026-03-09 11:08:52,047 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:08:52,743 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:08:52,743 [INFO] devmate: DevMateController ready.
+2026-03-09 11:09:06,717 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:09:06,723 [INFO] modules.memory_module: MemoryManager initialised  session=8090d2d5-1cdd-4382-8aa8-744187074379
+2026-03-09 11:09:09,646 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:09:10,333 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:09:10,333 [INFO] devmate: DevMateController ready.
+2026-03-09 11:09:16,673 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:09:20,929 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:09:41,254 [INFO] devmate: User text: 'remind me in 15minutes to bath'
+2026-03-09 11:09:41,254 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-09 11:09:41,254 [INFO] devmate: Intent: add_reminder  params: {'when': 'in 15minutes', 'text': 'bath'}
+2026-03-09 11:09:41,275 [INFO] modules.scheduler_module: Reminder scheduled: id=684b9fc9 at 11:24 AM (900 s)
+2026-03-09 11:09:49,102 [INFO] devmate: User text: 'open chrome'
+2026-03-09 11:09:49,102 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:09:49,102 [INFO] devmate: Intent: os_open_app  params: {'name': 'chrome'}
+2026-03-09 11:09:59,933 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 11:10:14,424 [INFO] devmate: User text: 'search youtube on chrome'
+2026-03-09 11:10:14,433 [INFO] modules.llm_module: Intent matched locally: browser_search
+2026-03-09 11:10:14,433 [INFO] devmate: Intent: browser_search  params: {'query': 'youtube'}
+2026-03-09 11:10:14,467 [INFO] WDM: ====== WebDriver manager ======
+2026-03-09 11:10:15,243 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:10:15,464 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:10:15,663 [INFO] WDM: There is no [win64] chromedriver "145.0.7632.117" for browser google-chrome "145.0.7632" in cache
+2026-03-09 11:10:15,663 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:10:16,109 [INFO] WDM: WebDriver version 145.0.7632.117 selected
+2026-03-09 11:10:16,113 [INFO] WDM: Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/win32/chromedriver-win32.zip
+2026-03-09 11:10:16,113 [INFO] WDM: About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/win32/chromedriver-win32.zip
+2026-03-09 11:10:16,317 [INFO] WDM: Driver downloading response is 200
+2026-03-09 11:10:17,142 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:10:17,442 [INFO] WDM: Driver has been saved in cache [C:\Users\ADMIN\.wdm\drivers\chromedriver\win64\145.0.7632.117]
+2026-03-09 11:11:01,038 [INFO] devmate: User text: 'go to youtube.com on chrome'
+2026-03-09 11:11:01,039 [INFO] modules.llm_module: Intent matched locally: browser_open
+2026-03-09 11:11:01,039 [INFO] devmate: Intent: browser_open  params: {'url': 'youtube.com'}
+2026-03-09 11:11:33,986 [INFO] devmate: User text: 'search python tutorials in tamil on youtube'
+2026-03-09 11:11:33,992 [INFO] modules.llm_module: Intent matched locally: browser_search
+2026-03-09 11:11:33,993 [INFO] devmate: Intent: browser_search  params: {'query': 'python tutorials in tamil on youtube'}
+2026-03-09 11:11:50,439 [INFO] devmate: User text: 'open  video'
+2026-03-09 11:11:50,441 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:11:50,441 [INFO] devmate: Intent: os_open_app  params: {'name': 'video'}
+2026-03-09 11:12:24,021 [INFO] devmate: User text: 'send mail to sdeepakdeepak57@gmail.com'
+2026-03-09 11:12:24,026 [INFO] modules.llm_module: Intent matched locally: gws_gmail_send
+2026-03-09 11:12:24,026 [INFO] devmate: Intent: gws_gmail_send  params: {'to': 'sdeepakdeepak57@gmail.com'}
+2026-03-09 11:12:24,427 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-03-09 11:13:08,574 [INFO] devmate: User text: 'can you draft a message to my friend that i am not coming to the college'
+2026-03-09 11:13:09,084 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-09 11:13:16,225 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:13:16,225 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:13:16,225 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:13:16,348 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:13:43,467 [INFO] devmate: User text: 'my friend name is aakash'
+2026-03-09 11:13:45,513 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:13:45,513 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:13:45,513 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:13:45,601 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:14:23,617 [INFO] devmate: User text: 'no i want to draft a whatsapp friendly message to aakash that i cant able to come to college'
+2026-03-09 11:14:25,311 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:14:25,311 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:14:25,312 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:14:25,401 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:14:40,029 [INFO] devmate: User text: 'great'
+2026-03-09 11:14:41,633 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:14:41,633 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:14:41,633 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:14:41,723 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:15:06,478 [INFO] devmate: User text: 'search for the funny dance'
+2026-03-09 11:15:06,482 [INFO] modules.llm_module: Intent matched locally: browser_search
+2026-03-09 11:15:06,482 [INFO] devmate: Intent: browser_search  params: {'query': 'the funny dance'}
+2026-03-09 11:15:33,276 [INFO] devmate: User text: 'go to the youtube video of the funny dance'
+2026-03-09 11:15:35,529 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:15:35,529 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:15:35,529 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:15:35,617 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:20:24,317 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:20:24,323 [INFO] modules.memory_module: MemoryManager initialised  session=c32f080a-dcc9-425c-a7a0-a8db1315208c
+2026-03-09 11:20:27,917 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:20:28,873 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:20:28,873 [INFO] devmate: DevMateController ready.
+2026-03-09 11:20:33,167 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 11:20:33,167 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:20:35,284 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:20:38,259 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:20:38,262 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:21:10,549 [INFO] devmate: User text: 'open chrome and search for pasta resepies'
+2026-03-09 11:21:10,552 [INFO] modules.llm_module: Intent matched locally: browser_search
+2026-03-09 11:21:10,552 [INFO] devmate: Intent: browser_search  params: {'query': 'pasta resepies'}
+2026-03-09 11:21:10,599 [INFO] WDM: ====== WebDriver manager ======
+2026-03-09 11:21:11,191 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:21:11,409 [INFO] WDM: Get LATEST chromedriver version for google-chrome
+2026-03-09 11:21:11,609 [INFO] WDM: Driver [C:\Users\ADMIN\.wdm\drivers\chromedriver\win64\145.0.7632.117\chromedriver-win32/chromedriver.exe] found in cache
+2026-03-09 11:21:58,098 [INFO] devmate: User text: 'go to youtube'
+2026-03-09 11:21:58,101 [INFO] modules.llm_module: Intent matched locally: browser_open
+2026-03-09 11:21:58,101 [INFO] devmate: Intent: browser_open  params: {'url': 'youtube.com'}
+2026-03-09 11:22:13,787 [INFO] devmate: User text: 'open notepad app'
+2026-03-09 11:22:13,788 [INFO] modules.llm_module: Intent matched locally: os_open_app
+2026-03-09 11:22:13,789 [INFO] devmate: Intent: os_open_app  params: {'name': 'notepad'}
+2026-03-09 11:22:39,897 [INFO] devmate: User text: 'type the text hello world from devmate'
+2026-03-09 11:22:40,374 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-09 11:22:43,316 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:22:43,316 [INFO] devmate: Intent: run_command  params: {'command': 'notepad.exe'}
+2026-03-09 11:24:04,971 [INFO] devmate: User text: 'send a whatsapp message to Akash Clg saying ena da aachi'
+2026-03-09 11:24:04,974 [INFO] modules.llm_module: Intent matched locally: whatsapp_send
+2026-03-09 11:24:04,974 [INFO] devmate: Intent: whatsapp_send  params: {'contact': 'akash clg', 'message': 'ena da aachi'}
+2026-03-09 11:24:13,810 [INFO] devmate: User text: 'yes'
+2026-03-09 11:25:28,658 [INFO] devmate: User text: 'read my whatsapp messages from akash clg'
+2026-03-09 11:25:28,660 [INFO] modules.llm_module: Intent matched locally: whatsapp_read
+2026-03-09 11:25:28,661 [INFO] devmate: Intent: whatsapp_read  params: {'contact': 'akash clg'}
+2026-03-09 11:26:08,825 [INFO] devmate: User text: 'read my whatsapp message from akash clg'
+2026-03-09 11:26:08,828 [INFO] modules.llm_module: Intent matched locally: whatsapp_read
+2026-03-09 11:26:08,828 [INFO] devmate: Intent: whatsapp_read  params: {'contact': 'akash clg'}
+2026-03-09 11:26:46,149 [INFO] devmate: Shutting down DEVMATE …
+2026-03-09 11:26:46,149 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-09 11:26:46,153 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:26:46,153 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-09 11:26:46,787 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:29:47,854 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:29:47,857 [INFO] modules.memory_module: MemoryManager initialised  session=f7cf9931-354d-4168-9cea-b21da48b6d63
+2026-03-09 11:29:51,442 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:29:52,386 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:29:52,392 [INFO] devmate: DevMateController ready.
+2026-03-09 11:29:56,946 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 11:29:56,946 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:29:58,793 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:30:01,952 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:30:01,962 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:30:20,277 [INFO] devmate: User text: 'remind me in 5 minutes to bath'
+2026-03-09 11:30:20,286 [INFO] modules.llm_module: Intent matched locally: add_reminder
+2026-03-09 11:30:20,286 [INFO] devmate: Intent: add_reminder  params: {'when': 'in 5 minutes', 'text': 'bath'}
+2026-03-09 11:30:20,302 [INFO] modules.scheduler_module: Reminder scheduled: id=f919981e at 11:35 AM (300 s)
+2026-03-09 11:31:40,017 [INFO] devmate: User text: 'send a whatsapp message to akash clg saying come tomorrow we want to see the reviewer'
+2026-03-09 11:31:40,017 [INFO] modules.llm_module: Intent matched locally: whatsapp_send
+2026-03-09 11:31:40,017 [INFO] devmate: Intent: whatsapp_send  params: {'contact': 'akash clg', 'message': 'come tomorrow we want to see the reviewer'}
+2026-03-09 11:31:50,617 [INFO] devmate: User text: 'yes'
+2026-03-09 11:33:04,999 [INFO] devmate: User text: 'send whatsapp message to akbar saying This is the test message send by the devmate deepak personal assistant'
+2026-03-09 11:33:05,002 [INFO] modules.llm_module: Intent matched locally: whatsapp_send
+2026-03-09 11:33:05,002 [INFO] devmate: Intent: whatsapp_send  params: {'contact': 'akbar', 'message': 'this is the test message send by the devmate deepak personal assistant'}
+2026-03-09 11:33:07,753 [INFO] devmate: User text: 'yes'
+2026-03-09 11:35:20,332 [INFO] modules.scheduler_module: Reminder fired: id=f919981e text='bath'
+2026-03-09 11:37:15,817 [INFO] devmate: Shutting down DEVMATE …
+2026-03-09 11:37:15,817 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-09 11:37:15,824 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:37:15,824 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-09 11:37:16,232 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:37:27,852 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:37:27,854 [INFO] modules.memory_module: MemoryManager initialised  session=e6f5ac0c-074e-4f58-9dd9-af5cef366756
+2026-03-09 11:37:30,723 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:37:31,423 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:37:31,423 [INFO] devmate: DevMateController ready.
+2026-03-09 11:37:35,052 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 11:37:35,052 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:37:38,008 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:37:39,987 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:37:39,987 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:38:20,013 [INFO] devmate: User text: 'send whatsapp message to akbar saying this is the test message send my devmate  deepak personal assitant'
+2026-03-09 11:38:20,017 [INFO] modules.llm_module: Intent matched locally: whatsapp_send
+2026-03-09 11:38:20,017 [INFO] devmate: Intent: whatsapp_send  params: {'contact': 'akbar', 'message': 'this is the test message send my devmate  deepak personal assitant'}
+2026-03-09 11:38:24,063 [INFO] devmate: User text: 'yes'
+2026-03-09 11:38:43,359 [INFO] devmate: User text: 'thanks'
+2026-03-09 11:38:43,864 [INFO] httpx: HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-03-09 11:38:47,074 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:38:47,074 [WARNING] modules.llm_module: Intent JSON parse failed (Expecting value: line 1 column 1 (char 0)) — falling back to general_chat
+2026-03-09 11:38:47,074 [INFO] devmate: Intent: general_chat  params: {}
+2026-03-09 11:38:47,165 [INFO] httpx: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-03-09 11:38:49,483 [INFO] devmate: Shutting down DEVMATE …
+2026-03-09 11:38:49,483 [INFO] modules.scheduler_module: All reminders cancelled.
+2026-03-09 11:38:49,485 [INFO] modules.memory_module: MemoryManager closed.
+2026-03-09 11:38:49,485 [INFO] devmate: DEVMATE shutdown complete.
+2026-03-09 11:39:08,113 [INFO] devmate: === DEVMATE starting ===
+2026-03-09 11:39:08,117 [INFO] modules.memory_module: MemoryManager initialised  session=5dc77c5a-d6c8-49ed-9eb2-62361b5803e1
+2026-03-09 11:39:11,492 [WARNING] tensorflow: From C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-03-09 11:39:12,367 [INFO] modules.speech_module: Loading Whisper 'small.en' model …
+2026-03-09 11:39:12,367 [INFO] devmate: DevMateController ready.
+2026-03-09 11:39:16,347 [INFO] modules.speech_module: Whisper model loaded.
+2026-03-09 11:39:16,347 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:39:18,774 [INFO] modules.speech_module: Loading Coqui TTS model …
+2026-03-09 11:39:21,487 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:39:21,487 [INFO] modules.speech_module: Coqui TTS model loaded.
+2026-03-09 11:39:36,923 [INFO] devmate: User text: 'push files'
+2026-03-09 11:39:36,929 [INFO] modules.llm_module: Intent matched locally: push_files_to_repo
+2026-03-09 11:39:36,929 [INFO] devmate: Intent: push_files_to_repo  params: {}
+2026-03-09 11:39:41,302 [INFO] devmate: User text: 'Devmate'

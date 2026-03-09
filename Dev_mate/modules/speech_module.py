@@ -107,14 +107,15 @@ class SpeechModule:
                 status_callback("🎤 Listening … (speak now)")
 
             recogniser = sr.Recognizer()
-            recogniser.energy_threshold = 300
+            recogniser.energy_threshold = 400
+            recogniser.dynamic_energy_threshold = True
             recogniser.pause_threshold = config.SILENCE_TIMEOUT_SEC
 
             with sr.Microphone(sample_rate=config.RECORD_SAMPLE_RATE) as source:
-                recogniser.adjust_for_ambient_noise(source, duration=0.5)
+                recogniser.adjust_for_ambient_noise(source, duration=1.0)
                 audio = recogniser.listen(
                     source,
-                    timeout=10,
+                    timeout=15,
                     phrase_time_limit=30,
                 )
 

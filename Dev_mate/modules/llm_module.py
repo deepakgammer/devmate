@@ -180,6 +180,41 @@ def _detect_intent_local(text: str) -> Optional[Dict[str, Any]]:
     if m:
         return {"intent": "change_mode", "params": {"mode": m.group(1).upper()}}
 
+    # ── whatsapp automation ────────────────────────────────────────────────
+    m = re.search(r"(?:send|write)\s+(?:a\s+)?(?:whatsapp\s+)?(?:message\s+)?to\s+([a-zA-Z0-9\s]+?)\s+(?:saying|with\s+(?:the\s+)?message|that)\s+['\"]?(.+?)['\"]?$", t)
+    if m:
+        return {"intent": "whatsapp_send", "params": {"contact": m.group(1).strip(), "message": m.group(2).strip()}}
+    
+    m = re.search(r"(?:read|check|show)\s+(?:my\s+)?(?:whatsapp\s+)?(?:message[s]?\s+)?(?:from\s+)?([a-zA-Z0-9\s]+)", t)
+    if m:
+        return {"intent": "whatsapp_read", "params": {"contact": m.group(1).strip()}}
+
+    # ── browser automation ────────────────────────────────────────────────
+    m = re.search(r"(?:open\s+(?:chrome|browser)\s+and\s+)?(?:search|google|find)\s+(?:for\s+)?(.+?)(?:\s+(?:on|in)\s+(?:google|browser|chrome|edge|web|the web|internet))?$", t)
+    if m:
+        return {"intent": "browser_search", "params": {"query": m.group(1).strip()}}
+    m = re.search(r"(?:open|go to|navigate to)\s+(?:website\s+)?(http[^\s]+|www\.[^\s]+|[a-zA-Z0-9.\-]+\.(?:com|org|net|io|edu))", t)
+    if m:
+        return {"intent": "browser_open", "params": {"url": m.group(1).strip()}}
+    
+    # ── catch commands like "open youtube" or "open facebook" as web requests ──
+    m = re.search(r"(?:open|go to|navigate to)\s+(youtube|google|facebook|twitter|x|github|stackoverflow|reddit|chatgpt|claude|netflix|amazon)(?:\.com)?$", t)
+    if m:
+        return {"intent": "browser_open", "params": {"url": m.group(1).strip() + ".com"}}
+
+    # ── os automation ────────────────────────────────────────────────────
+    m = re.search(r"(?:open|launch|start)\s+(?:app|application|program)\s+(.+)", t)
+    if not m:
+        m = re.search(r"(?:open|launch|start)\s+([a-zA-Z0-9\s]+?)(?:\s+app|\s+application)?$", t)
+        if m and "project" not in m.group(1) and "http" not in m.group(1) and "www" not in m.group(1) and "." not in m.group(1):
+            return {"intent": "os_open_app", "params": {"name": m.group(1).strip()}}
+    else:
+        return {"intent": "os_open_app", "params": {"name": m.group(1).strip()}}
+
+    m = re.search(r"(?:type|write)\s+(?:the\s+text\s+)?['\"](.+)['\"]", t)
+    if m:
+        return {"intent": "os_type", "params": {"text": m.group(1).strip()}}
+
     # ── Google Workspace intents ──────────────────────────────────────────
     gws_result = detect_gws_intent(text)
     if gws_result is not None:
@@ -228,6 +263,12 @@ Valid intents and their expected params:
 | gws_docs_create      | title (str)                                              |
 | gws_docs_list        | (none)                                                   |
 | gws_publish_report   | (none)                                                   |
+| browser_search       | query (str)                                              |
+| browser_open         | url (str)                                                |
+| os_open_app          | name (str)                                               |
+| os_type              | text (str)                                               |
+| whatsapp_send        | contact (str), message (str)                             |
+| whatsapp_read        | contact (str)                                            |
 | general_chat         | (none)                                                   |
 
 Rules:

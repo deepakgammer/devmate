@@ -21,6 +21,8 @@ BASE_PROJECT_DIR = Path.home() / "Projects"
 # "DEV" for professional task-focused, "MATE" for friendly buddy mode.
 CURRENT_MODE = "DEV"
 
+# ─────────────────────────── Security ──────────────────────────
+FACE_RECOGNITION_ENABLED = True
 
 # ─────────────────────────── LLM ────────────────────────────
 OLLAMA_MODEL        = "phi3:mini"      # Microsoft Phi-3 Mini – fast & capable
@@ -31,7 +33,7 @@ LLM_TEMPERATURE     = 0.1           # more deterministic for intent parsing
 LLM_TIMEOUT_SEC     = 45            # lower timeout to avoid hanging
 
 # ─────────────────────────── STT ────────────────────────────
-WHISPER_MODEL       = "base"   # ~145 MB, good speed/accuracy on CPU
+WHISPER_MODEL       = "small.en"   # better accuracy for English
 WHISPER_LANGUAGE    = "en"
 RECORD_SAMPLE_RATE  = 16000
 RECORD_CHANNELS     = 1

@@ -43,6 +43,10 @@ from modules.scheduler_module import SchedulerModule
 from modules.google_workspace import GWSManager
 from modules.ui_module import DevMateGUI
 from modules.task_manager import TaskManager
+from modules.face_recognition_module import FaceRecognitionModule
+from modules.os_automation_module import OSAutomationModule
+from modules.browser_module import BrowserModule
+import sys
 
 logger = logging.getLogger("devmate")
 
@@ -63,7 +67,6 @@ class DevMateController:
         self.automation = AutomationModule(output_callback=self._on_cmd_output)
         self.tasks      = TaskManager()
         self.gws        = GWSManager(output_callback=self._on_cmd_output)
-
         # GUI (created last; passes callbacks INTO controller)
         self.gui = DevMateGUI(
             on_user_input=self.handle_text_input,
@@ -72,6 +75,11 @@ class DevMateController:
 
         # Wire reminder scheduler → GUI
         self.scheduler._fire_cb = self._on_reminder_fire
+        
+        # Modules that depend on GUI for output callbacks
+        self.face_rec   = FaceRecognitionModule(data_dir=config.DATA_DIR, output_callback=self._on_cmd_output)
+        self.os_auto    = OSAutomationModule(output_callback=self._on_cmd_output)
+        self.browser    = BrowserModule(output_callback=self._on_cmd_output)
 
         # Pre-load models in background
         self.speech.preload_models()
@@ -91,6 +99,9 @@ class DevMateController:
         # Pending state for create_project flow (folder picker → name prompt)
         # Keys: 'language', 'base_dir', 'name' (optional), 'step'
         self._pending_create_project: Optional[Dict[str, Any]] = None
+
+        # Pending state for WhatsApp sending
+        self._pending_whatsapp: Optional[Dict[str, str]] = None
 
         # ── Idle engagement ───────────────────────────────────────────────
         self._last_activity = time.time()
@@ -168,6 +179,16 @@ class DevMateController:
                 name="Handler-push-pending",
             ).start()
             return
+            
+        # ── Multi-turn pending state: WhatsApp sending confirmation ────────
+        if self._pending_whatsapp is not None:
+            threading.Thread(
+                target=self._continue_whatsapp_send,
+                args=(text,),
+                daemon=True,
+                name="Handler-whatsapp-pending",
+            ).start()
+            return
 
         context = self.memory.get_context()
         self.llm.detect_intent_async(text, context, callback=self._on_intent)
@@ -218,6 +239,12 @@ class DevMateController:
             "run_command":         self._handle_run_command,
             "change_mode":         self._handle_change_mode,
             "time_date":           self._handle_time_date,
+            "browser_open":        self._handle_browser_open,
+            "browser_search":      self._handle_browser_search,
+            "os_open_app":         self._handle_os_open_app,
+            "os_type":             self._handle_os_type,
+            "whatsapp_send":       self._handle_whatsapp_send,
+            "whatsapp_read":       self._handle_whatsapp_read,
             # Google Workspace intents
             "gws_drive_list":      self._handle_gws_drive_list,
             "gws_drive_upload":    self._handle_gws_drive_upload,
@@ -837,6 +864,96 @@ class DevMateController:
         date_str = now.strftime("%A, %B %d, %Y")
         self._reply(f"🕐 It's **{time_str}** on **{date_str}**")
 
+    def _handle_browser_open(self, params: Dict) -> None:
+        url = params.get("url", "")
+        if not url:
+            self._reply("❌ No URL provided.")
+            return
+        self.gui.set_status(f"Opening browser to {url}...", ok=True)
+        ok = self.browser.open_url(url)
+        if ok:
+            self._reply(f"✅ Opened browser navigating to {url}")
+        else:
+            self._reply("❌ Failed to open URL in browser.")
+
+    def _handle_browser_search(self, params: Dict) -> None:
+        query = params.get("query", "")
+        if not query:
+            self._reply("❌ No search query provided.")
+            return
+        self.gui.set_status(f"Searching Google for {query}...", ok=True)
+        ok = self.browser.search_google(query)
+        if ok:
+            self._reply(f"✅ Performed Google search for: '{query}'")
+        else:
+            self._reply("❌ Failed to perform search.")
+
+    def _handle_os_open_app(self, params: Dict) -> None:
+        name = params.get("name", "")
+        if not name:
+            self._reply("❌ No app name provided.")
+            return
+        self.gui.set_status(f"Opening application: {name}...", ok=True)
+        ok = self.os_auto.open_app(name)
+        if ok:
+            self._reply(f"✅ Attempted to open application: {name}")
+        else:
+            self._reply(f"❌ Failed to open application: {name}")
+
+    def _handle_os_type(self, params: Dict) -> None:
+        text = params.get("text", "")
+        if not text:
+            self._reply("❌ No text to type provided.")
+            return
+        self.gui.set_status(f"Typing text...", ok=True)
+        ok = self.os_auto.type_text(text)
+        if ok:
+            self._reply("✅ Successfully typed the requested text.")
+        else:
+            self._reply("❌ Failed to type text. Check if OS automation is enabled.")
+
+    def _handle_whatsapp_send(self, params: Dict) -> None:
+        contact = params.get("contact", "")
+        message = params.get("message", "")
+        if not contact or not message:
+            self._reply("❌ Please specify both the contact and the message.")
+            return
+            
+        self._pending_whatsapp = {"contact": contact, "message": message}
+        self._reply(f"Do you want me to send the following message to **{contact}**?\n\n\"{message}\"\n\n*(Reply with 'yes' or 'no')*")
+
+    def _continue_whatsapp_send(self, text: str) -> None:
+        state = self._pending_whatsapp
+        self._pending_whatsapp = None
+        
+        text_lower = text.lower().strip()
+        if text_lower in ["yes", "y", "sure", "ok", "send it", "do it", "yeah"]:
+            self.gui.set_status("Sending WhatsApp message...", ok=True)
+            ok = self.os_auto.send_whatsapp_message(state["contact"], state["message"])
+            if ok:
+                self._reply("✅ WhatsApp message sent successfully!")
+            else:
+                self._reply("❌ Failed to send WhatsApp message.")
+        else:
+            self._reply("🚫 WhatsApp message sending cancelled.")
+            
+    def _handle_whatsapp_read(self, params: Dict) -> None:
+        contact = params.get("contact", "")
+        if not contact:
+            self._reply("❌ Please specify the contact whose messages you want to read.")
+            return
+            
+        self.gui.set_status(f"Reading WhatsApp messages from {contact}...", ok=True)
+        text = self.os_auto.read_whatsapp_messages(contact)
+        if text:
+            # truncate to avoid spamming the chat if it's too long
+            display_text = text[-500:] if len(text) > 500 else text
+            prefix = "[...]" if len(text) > 500 else ""
+            self._reply(f"📱 **Messages from {contact}:**\n\n```text\n{prefix}{display_text}\n```")
+            self.speech.speak_async(f"Here are the latest messages from {contact}.")
+        else:
+            self._reply(f"❌ Could not retrieve messages from {contact}.")
+
     def _handle_general_chat(self, params: Dict = None) -> None:
         # Retrieve the last user message from context
         context = self.memory.get_context()
@@ -1151,6 +1268,24 @@ class DevMateController:
 
     def run(self) -> None:
         """Start the Tkinter main loop."""
+        import config
+        if getattr(config, "FACE_RECOGNITION_ENABLED", False):
+            if not self.face_rec.available:
+                print("Face recognition disabled because dependencies are missing. Bypassing security.")
+            elif not self.face_rec.is_registered():
+                print("Face not registered, running registration...")
+                success, msg = self.face_rec.capture_reference()
+                if not success:
+                    print(f"Registration failed: {msg}. Exiting.")
+                    return
+            else:
+                print("Starting face authentication...")
+                authenticated, msg = self.face_rec.authenticate(timeout=15)
+                if not authenticated:
+                    print(f"Authentication failed: {msg}. Exiting.")
+                    sys.exit(1)
+                print(f"Authenticated: {msg}")
+                
         self.gui.mainloop()
         self._shutdown()
 
